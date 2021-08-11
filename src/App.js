@@ -1,60 +1,29 @@
 import React from "react";
 import "./Styles/styles.scss"
-
-class Menu extends React.Component{
-  constructor(props) {
-    super(props);
-    
-  }
-  render(){
-    
-      return(
-        <>
-         <div id="martyscombo"> 
-          <p>Marty's Combo</p>
-         </div>
-         
-        </>
-      )
-  }
-}
-
-class Whowe extends React.Component{
-  constructor(props) {
-    super(props);
-    
-  }
-  render(){
-    
-      return(
-        <>
-         <p>who we are</p>
-         
-        </>
-      )
-  }
-}
-
+import Menu from "./menu"
+import Buy from "./buy"
+import Whowe from "./whowe"
 
 class Body extends React.Component{
   constructor(props){
     super(props)
     this.state = {
-      content:null,
+      content:undefined,
     }
 }
   render(){
+    var mv = [<p>hello</p>]
     return(
         <>
          <ul class = "nav">
             <button onClick={()=>{
              this.setState({content:<Menu/>})}}>Menu</button>
             <button onClick={()=>{
-             this.setState({content:null})}}>Home</button>
+             this.setState({content:undefined})}}>Home</button>
             <button onClick={()=>{
              this.setState({content:<Whowe/>})}}>Who we are</button>
          </ul>
-        <div>{this.state.content}</div>
+        {this.state.content}
         </>
       )
   }
@@ -63,8 +32,7 @@ class Body extends React.Component{
 class App extends React.Component{
   constructor(props){
     super(props)
-    
-  }
+}
   render(){
     
       return(

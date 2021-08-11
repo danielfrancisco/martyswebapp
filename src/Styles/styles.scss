@@ -8,6 +8,78 @@ body{
     @include nav;
 } 
 
+#compras{
+  font-family: Arial;
+  font-weight: bold;
+  position: relative;
+  top: 10vh;
+  padding-top: 5vh;
+}
+
+p{
+    position: relative;
+    top: 20vh;
+}
+
+#martyscombo{
+ font-family: Arial;
+ position: relative;
+ left: 5vw;
+ top: 20vh;
+ font-weight: bold;
+ position: absolute;
+    #martysname{
+      position: relative;
+      top: 45vh;
+      position: absolute;
+    }
+ 
+}
+
+@mixin buytbutton {
+   background: black;
+   font-family: Arial;
+   color: white;
+   border: none;
+   width: 6vw;
+   height: 4vh;
+   position: relative;
+   
+}
+
+#buymartys{
+  @include buytbutton();
+  top: 23vh;
+  left: 0vh;
+  
+}
+
+#buycowboy{
+    @include buytbutton();
+    top: 65vh;
+   left: 100vh;
+   position: fixed;
+  }
+
+#cowboy{
+    font-family: Arial;
+    position: relative;
+    left: 55vw;
+    top: 20vh;
+    font-weight: bold;
+    position: absolute;
+    #cowboyname{
+        position: relative;
+        top: 45vh;
+        position: absolute;
+      }
+   }
+
+img{
+    height: 44vh;
+}
+
+
 
 
 
