@@ -1,0 +1,36 @@
+
+@mixin home {
+  position: relative;
+  top: 10vh;
+  font-family: Arial;
+  background: black;
+  font-weight: bold;
+  height: 60vh;
+  #hero{
+      position: relative;
+      left: 50vw;
+      top: 14vh;
+      font-size: 2.5vw;
+      color: white;
+  }
+  button{
+      font-size: 1vw;
+      color: white;
+      background-color: #0F52BA;
+      border: none;
+      font-size: 1.5vw;
+      font-weight: bold;
+      &:active{
+          background-color: darkblue;
+      }
+      cursor: pointer;
+      height: 5vh;
+      width: 9vw;
+  }
+  img{
+      position: relative;
+      top: -20vh;
+      height: 55vh;
+      left: 9vw;
+  }
+}

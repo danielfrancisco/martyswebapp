@@ -1,84 +1,39 @@
 @import "nav";
+@import "combos";
+@import "buy";
+@import "home";
+@import "try";
 
 body{
     margin: 0;
+    overflow-x: hidden;
 }
   
 .nav{
     @include nav;
 } 
 
-#compras{
-  font-family: Arial;
-  font-weight: bold;
-  position: relative;
-  top: 10vh;
-  padding-top: 5vh;
+#martys{
+  @include combos(15vh,19vw);
 }
 
-p{
-    position: relative;
-    top: 20vh;
+#cowboy{
+  @include combos(-27vh,55vw);
 }
 
-#martyscombo{
- font-family: Arial;
- position: relative;
- left: 5vw;
- top: 20vh;
- font-weight: bold;
- position: absolute;
-    #martysname{
-      position: relative;
-      top: 45vh;
-      position: absolute;
-    }
- 
-}
-
-@mixin buytbutton {
-   background: black;
-   font-family: Arial;
-   color: white;
-   border: none;
-   width: 6vw;
-   height: 4vh;
-   position: relative;
-   
-}
-
-#buymartys{
-  @include buytbutton();
-  top: 23vh;
-  left: 0vh;
+#buy{
+  @include buy
   
 }
 
-#buycowboy{
-    @include buytbutton();
-    top: 65vh;
-   left: 100vh;
-   position: fixed;
-  }
-
-#cowboy{
-    font-family: Arial;
-    position: relative;
-    left: 55vw;
-    top: 20vh;
-    font-weight: bold;
-    position: absolute;
-    #cowboyname{
-        position: relative;
-        top: 45vh;
-        position: absolute;
-      }
-   }
-
-img{
-    height: 44vh;
+#home{
+  @include home
+  
 }
 
+#try{
+ @include try
+}
 
 
 

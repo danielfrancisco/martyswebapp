@@ -1,0 +1,65 @@
+body {
+  margin: 0;
+}
+
+.nav {
+  height: 4vh;
+  list-style-type: none;
+  font-family: Arial;
+  position: relative;
+  top: 7vh;
+  background: black;
+  color: white;
+  padding-top: 1.5vh;
+}
+
+.nav button {
+  outline: none;
+  padding-right: 2vw;
+  font-size: 1vw;
+  font-weight: bold;
+  font-family: Arial;
+  position: relative;
+  left: 57vw;
+  cursor: pointer;
+  padding-top: 10px;
+  border: none;
+  background: black;
+  padding: 0vw;
+  color: white;
+  margin-right: 2vw;
+}
+
+.nav button:hover {
+  border: solid;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  border-color: white;
+  border-width: normal;
+  padding-bottom: 0.9vh;
+}
+
+#martysrender {
+  font-family: Arial;
+  position: relative;
+  top: 50vh;
+  left: 20vw;
+  font-weight: bold;
+  position: fixed;
+}
+
+#cowboyrender {
+  font-family: Arial;
+  position: relative;
+  top: 50vh;
+  left: 60vw;
+  font-weight: bold;
+  position: fixed;
+}
+
+p {
+  position: relative;
+  top: 10vh;
+}
+/*# sourceMappingURL=styles.css.map */

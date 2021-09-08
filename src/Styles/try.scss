@@ -1,0 +1,26 @@
+
+@mixin try{
+  position: relative;
+  top: 10vh;
+  font-weight: bold;
+  font-family: Arial;
+  left: 30vw;
+  font-size: 5vw;
+  button{
+      position: relative;
+      top: -3.4vh;
+      left: 13vw;
+      background: black;
+      font-family: Arial;
+      color: white;
+      border: none;
+      border-radius: 16px;
+      font-size: 1.5vw;
+      height: 4vw;
+      width: 8vw;
+      cursor: pointer;
+      &:active{
+          background-color: #282828;
+      }
+  }
+}

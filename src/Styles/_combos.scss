@@ -1,0 +1,28 @@
+
+@mixin combos($top,$left){
+    font-family: Arial;
+    position: relative;
+    top: $top;
+    left: $left;
+    font-weight: bold;
+    img{
+      height: 200px;
+      width: 300px;
+    }
+    button{
+      background: black;
+      color:white;
+      border: none;
+      font-family: Arial;
+      height: 5.2vh;
+      width: 6vw;
+      position: relative;
+      left: 7vw;
+      cursor: pointer;
+      border-radius: 16px;
+      &:hover{
+          background: green;
+      }
+    }
+    }
+
