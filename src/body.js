@@ -1,9 +1,10 @@
-import React from "react";
+import React, { useImperativeHandle } from "react";
 import "./Styles/styles.scss"
 import Menu from "./menu"
 import Whowe from "./whowe"
 import Home from "./home";
 import uuid from 'react-uuid'
+
 
 class Body extends React.Component{
   constructor(props){
@@ -12,11 +13,11 @@ class Body extends React.Component{
       content:<Home/>,
       nuevo:[],
       mnumber:1,
-      mprice:6.75,
+      price:6.75,
       mogprice:undefined,
-      cnumber:1,
-      cprice:3,
-      cogprice:undefined
+      number:1,
+      check:"",
+      bcontent:undefined
     }
     
 }
@@ -25,65 +26,29 @@ class Body extends React.Component{
     
   }
 
-  selec=(c)=>{
-    switch(c){
-     case "martys":
-      this.setState({nuevo:[this.state.nuevo,<ul id="buy">
-      <b>Product</b> 
-      <b>Quantity</b> 
-      <b>Total</b>
-      <div id="compra"><img src="https://www.seekpng.com/png/full/482-4822222_burger-
-      and-fries-png-vector-library-12oz-coke.png"></img> Martys combo
-      <button id="decrease" onClick={()=>{new Promise((minus)=>{
-         minus()
-      })
-      .then(()=>{this.clean()})
-      .then(()=>{if(this.state.mnumber>1){this.setState({mnumber:this.state.mnumber-1})}})
-      .then(()=>{this.selec("martys")})
-      }}>-</button>
-      <b id="number">{this.state.mnumber}</b>
-      <button id="increment"onClick={()=>{new Promise((increase)=>{
-         increase()
-      })
-      .then(()=>{this.clean()})
-      .then(()=>{this.setState({mnumber:this.state.mnumber+1})})
-      .then(()=>{this.selec("martys")})
-      }}>+</button>
-      <b id="price">${this.state.mprice}</b>
-      </div>
-      </ul>]})
-      this.setState({content:this.state.nuevo})
-      break;
-
-     case "cowboy":
-      this.setState({nuevo:[this.state.nuevo,<ul id="buy">
+  selec=(combo,ima,price)=>{
+    this.setState({price:price})
+    if(this.state.check.includes(combo)==false){
+      this.setState({check:[combo].concat(this.state.check)})
+      this.setState({nuevo:[this.state.nuevo,<ul id="buy" key={uuid()}>
       <b>Product</b>  
       <b>Quantity</b> 
       <b>Total</b>
-      <div id="compra"><img src="https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/impossible-burger-1523482169.jpg?
-      //crop=1.00xw:0.748xh;0,0.156xh&resize=980:*"></img> Cowboy combo
-      <button id="decrease" onClick={()=>{new Promise((minus)=>{
-         minus()
-      })
-      .then(()=>{this.clean()})
-      .then(()=>{if(this.state.cnumber>1){this.setState({cnumber:this.state.cnumber-1})}})
-      .then(()=>{this.selec("cowboy")})
-      }}>-</button>
-      <b id="number">{this.state.cnumber}</b>
-      <button id="increment" onClick={()=>{new Promise((increase)=>{
-         increase()
-      })
-      .then(()=>{this.clean()})
-      .then(()=>{this.setState({cnumber:this.state.cnumber+1})})
-      .then(()=>{this.selec("cowboy")})
-      }}>+</button>
-      <b id="price">${this.state.cprice}</b>
+      <div id="compra"><img src={ima}></img> {combo}
+      <button id="decrease"  onClick={()=>{if(document.getElementById("number").innerHTML>1)
+      {document.getElementById("number").innerHTML=parseInt(
+      document.getElementById("number").innerHTML)-1;  price=price-6.75}; 
+      document.getElementById("price").innerHTML="$"+price
+    }}>-</button>
+      <b id="number">{this.state.number}</b>
+      <button id="increment" onClick={()=>{document.getElementById("number").innerHTML=parseInt(
+      document.getElementById("number").innerHTML)+1; price = price+6.75
+      document.getElementById("price").innerHTML="$"+price
+    }}>+</button>
+      <b id="price">${this.state.price}</b>
       </div>
-      </ul>]})
-      this.setState({content:this.state.nuevo})
-    break;
-   }
-    
+      </ul>]})}
+    this.setState({content:this.state.nuevo})
     }
 render(){
   return(
@@ -99,8 +64,10 @@ render(){
                 new Promise((final)=>{
                   final()
                 }).then(()=>{this.clean()})
-                .then(()=>{this.selec("martys")})
-              }}>Buy</button>
+                .then(()=>{this.selec("martys",
+                "https://www.seekpng.com/png/full/482-4822222_burger-and-fries-png-vector-library-12oz-coke.png",
+                6.75)})
+                }}>Buy</button>
               </div>
               <div id="cowboy">
               <img src="https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/impossible-burger-1523482169.jpg?
@@ -110,7 +77,9 @@ render(){
                 new Promise((final)=>{
                   final()
                 }).then(()=>{this.clean()})
-                .then(()=>{this.selec("cowboy")})
+                .then(()=>{this.selec("cowboy",
+                "https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/impossible-burger-1523482169.jpg?crop=1.00xw:0.748xh;0,0.156xh&resize=980:*",
+                3)})
               }}>Buy</button>
              </div></div>
              }/>})}}>Menu</button>
@@ -122,6 +91,9 @@ render(){
              this.setState({content:<Whowe/>})}}>About us</button>
          </ul>
          {this.state.content}
+         
+         
+         
          </>
          ) 
         }

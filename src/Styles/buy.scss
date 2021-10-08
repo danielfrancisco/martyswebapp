@@ -6,7 +6,6 @@
         background: gray;
     }
   }
-
 @mixin buy {
   position: relative;
   top: 6vh;
@@ -24,6 +23,7 @@
   }
   div{
       padding-top: 2vh;
+      
   }
   button{
       margin-left: 0vw;
@@ -56,3 +56,4 @@
     width:1.6vw;
   }
 }
+

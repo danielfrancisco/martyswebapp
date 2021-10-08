@@ -10,7 +10,7 @@ class Try extends React.Component{
         <p>Coming soon</p>
         <button onClick={()=>{
           this.setState({content:<Home/>})
-        }}>Go home</button>
+        }}>Go back</button>
     </div>
       }
   }
