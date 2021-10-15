@@ -28,32 +28,60 @@ selec=(combo,img,num,price,)=>{
           <b>Quantity</b> 
           <b>Total</b>
           <div id="compra"><img src={img}></img> {combo}
-          <button id="decrease" onClick={()=>{
-            if(num<2==false){data[combo].num = data[combo].num-1}
+          <button id="decrease" onClick={()=>{new Promise((mp)=>{
+           mp()
+          })
+          .then(()=>{
+            data[combo].num = data[combo].num-1
+          })
+          .then(()=>{
+            for(var i in this.state.check){
+              
+              if(this.state.check[i] == combo){
+                this.state.check[i] = ""
+                this.state.nuevo[i] = ""
+                
+               console.log(this.state.nuevo) 
+              }
+           } })
+           .then(()=>{
             this.selec(data[combo].name,data[combo].img,data[combo].num,data[combo].price)
+           })
           }}>-</button>
           <b id="number">{num}</b>
-          <button id="increment" onClick={()=>{
+          <button id="increment" onClick={()=>{new Promise((mp)=>{
+           mp()
+          })
+          .then(()=>{
             data[combo].num = data[combo].num+1
+          })
+          .then(()=>{
+            for(var i in this.state.check){
+              
+              if(this.state.check[i] == combo){
+                this.state.check[i] = ""
+                this.state.nuevo[i] = ""
+                
+               console.log(this.state.nuevo) 
+              }
+           } })
+           .then(()=>{
             this.selec(data[combo].name,data[combo].img,data[combo].num,data[combo].price)
+           })
           }}>+</button>
           <b id="price">${price}</b>
           </div>
         </ul>
         if(this.state.check.includes(combo)==false){
-          this.setState({nuevo:[this.state.nuevo,[cont]]})
+          this.setState({nuevo:[cont].concat(this.state.nuevo)})
           this.setState({check:[combo].concat(this.state.check)})
-          console.log(this.state.check)
-          
         }
         
-        for(var i in this.state.nuevo){
-          for(var j in this.state.nuevo[i]){
-            console.log(this.state.nuevo[i][j])
-          }
-        }
         this.setState({content:this.state.nuevo})
-     
+       /*for(var i in this.state.nuevo){
+        console.log(this.state.nuevo[i].key)
+       }*/
+       
 }
 render(){
   return(
