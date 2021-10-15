@@ -11,8 +11,9 @@ class Body extends React.Component{
     super(props)
     this.state = {
       content:<Home/>,
-      nuevo:undefined,
+      nuevo:[],
       check:[],
+      c:0
       }
     
 }
@@ -20,9 +21,9 @@ clean=()=>{
     this.setState({content:undefined})
     
   }
-selec=(combo,img,num,price)=>{
+selec=(combo,img,num,price,)=>{
     
-      var cont = {content :<ul id="buy" key={combo}>
+    var cont = <ul id="buy" key={combo}>
           <b>Product</b>  
           <b>Quantity</b> 
           <b>Total</b>
@@ -38,10 +39,22 @@ selec=(combo,img,num,price)=>{
           }}>+</button>
           <b id="price">${price}</b>
           </div>
-        </ul>}
-      this.setState({content:cont.content})
-  }
-  
+        </ul>
+        if(this.state.check.includes(combo)==false){
+          this.setState({nuevo:[this.state.nuevo,[cont]]})
+          this.setState({check:[combo].concat(combo)})
+          console.log(this.state.check)
+          
+        }
+        
+        for(var i in this.state.nuevo){
+          for(var j in this.state.nuevo[i]){
+            console.log(this.state.nuevo[i][j])
+          }
+        }
+        this.setState({content:this.state.nuevo})
+     
+}
 render(){
   return(
         <>
