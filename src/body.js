@@ -6,9 +6,6 @@ import Home from "./home";
 import uuid from 'react-uuid';
 import { data} from "./data";
 
-
-
-
 class Body extends React.Component{
   constructor(props){
     super(props)
@@ -23,74 +20,26 @@ clean=()=>{
     this.setState({content:undefined})
     
   }
-
-  selec=(combo)=>{
-    var combos = {
-      martys:
-        <ul id="buy" key={uuid()}>
+selec=(combo,img,num,price)=>{
+    
+      var cont = {content :<ul id="buy" key={combo}>
           <b>Product</b>  
           <b>Quantity</b> 
           <b>Total</b>
-          <div id="compra"><img src={data.martys.img}></img> {data.martys.name}
+          <div id="compra"><img src={img}></img> {combo}
           <button id="decrease" onClick={()=>{
-            if(data.martys.num<2==false){data.martys.num = data.martys.num-1}
-            this.selec()
+            if(num<2==false){data[combo].num = data[combo].num-1}
+            this.selec(data[combo].name,data[combo].img,data[combo].num,data[combo].price)
           }}>-</button>
-          <b id="number">{data.martys.num}</b>
-          <button id="increment" onClick={()=>{new Promise((mf)=>{
-            mf()
-          })
-          .then(()=>{
-            data.martys.num = data.martys.num+1
-          })
-          .then(()=>{
-            this.selec()
-          })
+          <b id="number">{num}</b>
+          <button id="increment" onClick={()=>{
+            data[combo].num = data[combo].num+1
+            this.selec(data[combo].name,data[combo].img,data[combo].num,data[combo].price)
           }}>+</button>
-          <b id="price">${data.martys.price}</b>
+          <b id="price">${price}</b>
           </div>
-        </ul>,
-    
-      cowboy : <ul id="buy" key={uuid()}>
-      <b>Product</b>  
-      <b>Quantity</b> 
-      <b>Total</b>
-      <div id="compra"><img src={data.cowboy.img}></img> {data.cowboy.name}
-      <button id="decrease" onClick={()=>{
-            if(data.cowboy.num>1){data.cowboy.num = data.cowboy.num-1
-              this.selec()}
-          }} >-</button>
-      <b id="number" >{data.cowboy.num}</b>
-      <button id="increment" onClick={()=>{new Promise((mf)=>{
-            mf()
-          })
-          .then(()=>{
-            data.cowboy.num = data.cowboy.num+1
-          })
-          .then(()=>{
-            this.selec()
-          })
-          }}>+</button>
-      <b id="price">${data.cowboy.price}</b>
-      </div>
-    </ul>
-    
-    }
-    if(this.state.check.includes(combo)==false){
-      this.setState({check:[combo].concat(this.state.check)})
-      switch(combo){
-        case "martys":
-          this.setState({nuevo:[this.state.nuevo,combos.martys]})
-        break;
-        case "cowboy":
-          this.setState({nuevo:[this.state.nuevo,combos.cowboy]})
-        break;
-      }
-    }
-    
-    
-    this.setState({content:this.state.nuevo})
-      
+        </ul>}
+      this.setState({content:cont.content})
   }
   
 render(){
@@ -107,7 +56,7 @@ render(){
                 new Promise((final)=>{
                   final()
                 }).then(()=>{this.clean()})
-                .then(()=>{this.selec("martys")})
+                .then(()=>{this.selec(data.martys.name,data.martys.img,data.martys.num,data.martys.price)})
                 }}>Buy</button>
               </div>
               <div id="cowboy">
@@ -118,7 +67,7 @@ render(){
                 new Promise((final)=>{
                   final()
                 }).then(()=>{this.clean()})
-                .then(()=>{this.selec("cowboy")})
+                .then(()=>{this.selec(data.cowboy.name,data.cowboy.img,data.cowboy.num,data.cowboy.price)})
               }}>Buy</button>
              </div></div>
              }/>})}}>Menu</button>
@@ -130,10 +79,7 @@ render(){
              this.setState({content:<Whowe/>})}}>About us</button>
          </ul>
          {this.state.content}
-         
-         
-         
-         </>
+        </>
          ) 
             
       }
