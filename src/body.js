@@ -42,7 +42,7 @@ selec=(combo,img,num,price,)=>{
         </ul>
         if(this.state.check.includes(combo)==false){
           this.setState({nuevo:[this.state.nuevo,[cont]]})
-          this.setState({check:[combo].concat(combo)})
+          this.setState({check:[combo].concat(this.state.check)})
           console.log(this.state.check)
           
         }
