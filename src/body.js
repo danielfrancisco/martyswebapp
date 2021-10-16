@@ -13,7 +13,7 @@ class Body extends React.Component{
       content:<Home/>,
       nuevo:[],
       check:[],
-      c:0
+      pos:undefined
       }
     
 }
@@ -32,16 +32,18 @@ selec=(combo,img,num,price,)=>{
            mp()
           })
           .then(()=>{
-            data[combo].num = data[combo].num-1
+            if(data[combo].num>1){
+              data[combo].num = data[combo].num-1
+            }
           })
           .then(()=>{
             for(var i in this.state.check){
               
               if(this.state.check[i] == combo){
-                this.state.check[i] = ""
-                this.state.nuevo[i] = ""
-                
-               console.log(this.state.nuevo) 
+                delete this.state.check[i] 
+                this.setState({pos:i})
+                delete this.state.nuevo[i] 
+               
               }
            } })
            .then(()=>{
@@ -54,34 +56,42 @@ selec=(combo,img,num,price,)=>{
           })
           .then(()=>{
             data[combo].num = data[combo].num+1
+            
           })
           .then(()=>{
+            console.log(this.state.nuevo)
             for(var i in this.state.check){
               
               if(this.state.check[i] == combo){
-                this.state.check[i] = ""
-                this.state.nuevo[i] = ""
                 
-               console.log(this.state.nuevo) 
+                this.state.check[i] = ""
+                
+                delete this.state.nuevo[i]  
+                
               }
            } })
            .then(()=>{
             this.selec(data[combo].name,data[combo].img,data[combo].num,data[combo].price)
+            
            })
           }}>+</button>
           <b id="price">${price}</b>
           </div>
         </ul>
-        if(this.state.check.includes(combo)==false){
+        if(this.state.check.includes(combo)==false && this.state.check.includes("")==false) {
           this.setState({nuevo:[cont].concat(this.state.nuevo)})
           this.setState({check:[combo].concat(this.state.check)})
+          console.log(this.state.nuevo)
         }
-        
+        else if(this.state.check.includes(combo)==false && this.state.check.includes("")==true){
+            this.setState({nuevo: [cont].concat(this.state.nuevo)})
+            this.setState({check:[combo].concat(this.state.check)})
+            console.log(this.state.nuevo)
+          }
         this.setState({content:this.state.nuevo})
        /*for(var i in this.state.nuevo){
         console.log(this.state.nuevo[i].key)
        }*/
-       
 }
 render(){
   return(
