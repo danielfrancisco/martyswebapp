@@ -14,11 +14,11 @@ body{
 } 
 
 #martys{
-  @include combos(15vh,19vw);
+  @include combos(20vh,19vw);
 }
 
 #cowboy{
-  @include combos(-27vh,55vw);
+  @include combos(37vh,55vw);
 }
 
 #buy{
@@ -29,6 +29,16 @@ body{
 #home{
   @include home
   
+}
+
+#whowe{
+  position: relative;
+  top: 30vh;
+  font-family: Arial;
+  font-style: italic;
+  left: 28vw;
+  font-size: 2vw;
+  font-weight: bolder;
 }
 
 #try{

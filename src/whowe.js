@@ -10,7 +10,10 @@ class Whowe extends React.Component{
       
         return(
           <>
-           <p>who we are</p>
+           <p id="whowe">Our priority are you, that's why we focus <br />
+             on using ingredients with the best quality posible,<br />
+             right from the
+           </p>
            
           </>
         )
