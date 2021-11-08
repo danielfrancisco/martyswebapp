@@ -1,6 +1,6 @@
-import React, { useImperativeHandle } from "react";
+import React from "react";
 import "./Styles/styles.scss";
-import uuid from 'react-uuid'
+
 
 class Menu extends React.Component{
     constructor(props) {
