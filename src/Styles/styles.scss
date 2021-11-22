@@ -13,9 +13,17 @@ body{
     @include nav;
 } 
 
-#martys{
-  @include combos(20vh,19vw);
+
+
+#comb{
+  @include combos(16vh,12vw);
 }
+
+#combr{
+  @include combos(26vh,54vw);
+  position: absolute
+}
+
 
 #cowboy{
   @include combos(37vh,55vw);
@@ -23,8 +31,7 @@ body{
 
 #buy{
   @include buy
-  
-}
+  }
 
 #home{
   @include home
