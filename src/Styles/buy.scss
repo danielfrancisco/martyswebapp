@@ -12,6 +12,7 @@
   left: 18.8vw;
   font-family: Arial;
   margin-top: 20vh;
+  -webkit-user-drag: none;
   b{
       margin-left: 13vw;
   }
@@ -42,6 +43,12 @@
       position: relative;
       left: -4vw;
       top: 7vh;
+      -webkit-user-select: none;  
+      -moz-user-select: none;    
+      -ms-user-select: none;      
+      user-select: none;
+     -webkit-user-drag: none;
+    
   }
   #price{
       position: relative;

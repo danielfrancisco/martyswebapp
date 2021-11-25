@@ -4,12 +4,13 @@ import Menu from "./menu"
 import Whowe from "./whowe"
 import Home from "./home";
 import uuid from 'react-uuid';
-import { data} from "./data";
+import { data, or} from "./data";
 
 var li = []
 var rli=[]
 var lick = []
 var cou = 1
+
 
 class Body extends React.Component{
   constructor(props){
@@ -19,20 +20,28 @@ class Body extends React.Component{
       nuevo:[],
       check:[],
       co:0,
-      
+      pric : ""
       }
-    
-}
+    }
+
 clean=()=>{
     this.setState({content:undefined})
     
   }
+  
 selec=(combo)=>{
+  for(var i in or){
+    if(or[i]==data[combo].price){
+      var newpri=or[i]*data[combo].num
+      
+    }
+  }
+  this.setState({pric:newpri})
   //displaying items in cart
   var cont = <ul id="buy" key={data[combo].name}>
   <b>Product</b>  
   <b>Quantity</b> 
-  <b>Total</b>
+  <b>Price</b>
   <div id="compra"><img src={data[combo].img} alt="combo"></img> {data[combo].name}
   <button id="decrease" onClick={()=>{
     new Promise((mr)=>{
@@ -41,6 +50,7 @@ selec=(combo)=>{
     })
     .then(()=>{
       if(data[combo].num>1){
+        //reducing the quantity of items using the button -
       data[combo].num = data[combo].num-1
       
       }
@@ -64,15 +74,24 @@ selec=(combo)=>{
 
   <b id="number">{data[combo].num}</b>
   <button id="increment" onClick={()=>{
+    
     new Promise((mr)=>{
       
       mr()
     })
     .then(()=>{
+      
       //incresing the quantity of items using the button +
       data[combo].num = data[combo].num+1
-     
-      })
+      for(var i in or){
+        if(or[i]==data[combo].price){
+          var newpri=or[i]*data[combo].num
+          
+        }
+      }
+      this.setState({pric:newpri})
+      
+       })
     .then(()=>{
       /*emptying the array so the quantity of items can updated
       when the button + is pressed*/
@@ -97,7 +116,7 @@ selec=(combo)=>{
     
   } 
   }>+</button>
-  <b id="price">${data[combo].price}</b>
+  <b id="price">${this.state.pric}</b>
   </div>
 </ul>
 if(this.state.check.includes(data[combo].name)===false && this.state.check.includes("")===false) {
@@ -176,10 +195,8 @@ componentDidMount(){
       
       
       cou = cou+1
-      
-}
- 
-}
+      }
+ }
 
 render(){
   return(
