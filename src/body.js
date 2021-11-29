@@ -134,11 +134,13 @@ this.setState({content:this.state.nuevo})
 componentDidMount(){
   //adding items from the menu to array so can be displayed
   for(var i in data){
-    
     for(var j in data[i]){
+     /*with the help of the variable cou used as a counter 
+     are able to set each item  in their respective colum.
+     Items in the lef columm are stored in the li array and
+     the items in the right columm are stored in the rli array*/
      if(cou%2===1){
-        
-      if(j !== "num" && j==="img") {
+        if(j !== "num" && j==="img") {
         li.push(<img src={data[i][j]} alt="combo" key={uuid()}></img>)
       }
       if(j !== "num" && j==="price") {
@@ -162,9 +164,11 @@ componentDidMount(){
       }
       
     }
-   
+     /*with the help of the variable cou used as a counter 
+     are able to set each item  in their respective colum.
+     Items in the lef columm are stored in the li array and
+     the items in the right columm are stored in the rli array*/
     if(cou%2===0){
-      
       if(j !== "num" && j==="img") {
         rli.push(<img src={data[i][j]} alt="combo" key={uuid()}></img>)
       }
@@ -187,15 +191,11 @@ componentDidMount(){
 
       if(j !== "num" && j!=="img" && j!=="price") {
         rli.push(<p key={uuid()}>{data[i][j]}</p>,)
+        }
       }
-      
     }
-    
-    }
-      
-      
       cou = cou+1
-      }
+  }
  }
 
 render(){
@@ -220,8 +220,7 @@ render(){
          <div key={uuid()}>{this.state.content}</div>
         </>
          ) 
-            
-      }
+          }
 }
 
 export default Body
