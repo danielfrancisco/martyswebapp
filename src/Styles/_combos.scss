@@ -1,13 +1,25 @@
 
+#parli{
+  position: absolute;
+}
+
+
+#pali{
+  position: absolute;
+}
+
 @mixin combos($top,$left){
     font-family: Arial;
     position: relative;
     top: $top;
     left: $left;
     font-weight: bold;
+    margin-bottom: 6vh;
+    
     img{
       height: 200px;
       width: 300px;
+      margin-top: 15vh;
       -webkit-user-select: none;  
       -moz-user-select: none;    
       -ms-user-select: none;      
@@ -21,15 +33,21 @@
       font-family: Arial;
       height: 5.2vh;
       width: 6vw;
+      
       position: relative;
       left: 2vw;
       top: 5vh;
       cursor: pointer;
       border-radius: 16px;
+      
       &:hover{
           background: green;
       }
     }
+    .priceco{
+      margin-bottom: 8vh;
+    }
+   
     
     }
 

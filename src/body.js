@@ -144,7 +144,7 @@ componentDidMount(){
         li.push(<img src={data[i][j]} alt="combo" key={uuid()}></img>)
       }
       if(j !== "num" && j==="price") {
-        li.push(<p key={uuid()}>${data[i][j]}</p>)
+        li.push(<p class="priceco" key={uuid()}>${data[i][j]}</p>)
       }
 
       if(j==="name"){
@@ -173,7 +173,7 @@ componentDidMount(){
         rli.push(<img src={data[i][j]} alt="combo" key={uuid()}></img>)
       }
       if(j !== "num" && j==="price") {
-        rli.push(<p key={uuid()}>${data[i][j]}</p>)
+        rli.push(<p class="priceco" key={uuid()}>${data[i][j]}</p>)
       }
 
       if(j==="name"){
@@ -205,18 +205,26 @@ render(){
             <button onClick={()=>{
             //display items in menu
               this.setState({content:<Menu cont={[
-              <div id="comb" key={uuid()} >{li.map(v=>{return v})}</div>,
+              <div id="pali">
+              <div id="comb" key={uuid()} >{li.map(v=>{return v})}</div>
+              </div>,
+              <div id="parli">
               <div id="combr" key={uuid()} >{rli.map(v=>{return v})}</div>
+              </div>
+              
             ]}/>}) 
-            }}>Menu</button>
+            }} id="menubutton">Menu</button>
 
             <button onClick={()=>{
-             this.setState({content:<Home/>})}}>Home</button>
-
+             this.setState({content:<Home/>})}} id="homebutton">Home</button>
+            
             <button onClick={()=>{
-             this.setState({content:<Whowe/>})}}>About us</button>
+             this.setState({content:<Whowe/>})}}id="aboutbutton">About us</button>
          </ul>
-
+          <div id="car" onClick={()=>{
+            this.setState({content:this.state.nuevo})
+          }}><img src="https://media.istockphoto.com/vectors/shopping-cart-icon-vector-id1142859120?k=20&m=1142859120&s=170667a&w=0&h=mDJbGHOildt4Ip7TOmNt2IN9icVMyvd0_ByrqYhpAVA="/>
+          </div>
          <div key={uuid()}>{this.state.content}</div>
         </>
          ) 

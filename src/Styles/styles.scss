@@ -4,29 +4,70 @@
 @import "home";
 @import "try";
 
+#car{
+   font-size: 2vw;
+   font-family: Roboto;
+   margin-left: 80vw;
+   position: relative;
+   top: 9vh;
+   cursor: pointer;
+  img{
+    height: 54px;
+    width: 54px;
+  }
+}
+
+$mobile: 500px;
+$mediumpc : 750px;
+
 body{
     margin: 0;
     overflow-x: hidden;
+     
 }
   
 #nav{
     @include nav;
+    @media (max-width:500px) {
+      #menubutton{
+        font-size: 5vw;
+        left: 38vw
+      }
+
+      #homebutton{
+        left: -15vw;
+        font-size: 5vw;
+      }
+
+      #aboutbutton{
+        display: none
+      }
+
+      button{
+        &:hover{
+          border: none
+        }
+      }
+      
+    }
+    
 } 
 
 
 
 #comb{
-  @include combos(16vh,12vw);
+  @include combos(6vh,12vw);
+  
 }
 
 #combr{
-  @include combos(26vh,54vw);
-  position: absolute
+  @include combos(6vh,54vw);
+  
 }
 
 
 #cowboy{
-  @include combos(37vh,55vw);
+  @include combos(29vh,55vw);
 }
 
 #buy{
@@ -34,8 +75,37 @@ body{
   }
 
 #home{
-  @include home
-  
+  @include home;
+  @media (max-width:$mobile){
+    width: 100vw;
+    img{
+      top: -5vh;
+      left: -0vw;
+      width: 90vw;
+    }
+    p{
+      display: none;
+      
+      
+    }
+   #tryonebutton{
+      position: relative;
+       top: 50vh;
+       width: 50vw;
+       left: -40vw;
+       font-size: 4vw;
+    }
+  }
+  @media (min-width: $mediumpc){
+    img{
+      position: relative;
+      top: -13vh;
+      height: 45vh;
+    }
+  }
+}
+#comeleli{
+  border: 1px solid gray;
 }
 
 #whowe{
@@ -51,7 +121,6 @@ body{
 #try{
  @include try
 }
-
 
 
 

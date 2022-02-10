@@ -13,14 +13,17 @@
   font-family: Arial;
   margin-top: 20vh;
   -webkit-user-drag: none;
+  
   b{
       margin-left: 13vw;
+      
   }
   #number{
     margin-left: 10vw;
     font-weight: normal;
     position: relative;
     left: 2vw;
+    
   }
   div{
       padding-top: 2vh;
@@ -32,10 +35,12 @@
       left: 7vw;
       border: none;
       background: gray;
+      
     }
   #compra{
       position: relative;
       left: -3vw;
+      
   }
   img{
       height: 20vh;
@@ -48,19 +53,24 @@
       -ms-user-select: none;      
       user-select: none;
      -webkit-user-drag: none;
-    
-  }
+     
+    }
   #price{
       position: relative;
       left: 3vw;
       font-weight: normal;
+      
+      
   }#increment{
-    @include addorremove
+    @include addorremove;
+    
   }
 
   #decrease{
     @include addorremove;
     width:1.6vw;
+    
+    
   }
 }
 
