@@ -30,7 +30,7 @@ clean=()=>{
   }
   
 selec=(combo)=>{
-  this.setState({nicart:this.state.nicart+1})
+  
   for(var i in or){
     if(or[i]===data[combo].price){
       var newpri=or[i]*data[combo].num
@@ -125,7 +125,7 @@ if(this.state.check.includes(data[combo].name)===false && this.state.check.inclu
   this.setState({nuevo:[cont].concat(this.state.nuevo)})
   //array used it to check if an elemnt was already added to the cart
   this.setState({check:[data[combo].name].concat(this.state.check)})
-  
+  this.setState({nicart:this.state.nuevo.length})
 }
 //switching to cart page
 this.setState({content:this.state.nuevo})
