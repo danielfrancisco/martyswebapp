@@ -1,7 +1,6 @@
 import React from "react";
 import "./Styles/styles.scss";
 
-
 class Menu extends React.Component{
     constructor(props) {
       super(props);
@@ -11,7 +10,7 @@ class Menu extends React.Component{
       }
 }
 
-  
+
     render(){
      return(
           <>

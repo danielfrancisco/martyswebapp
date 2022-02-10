@@ -3,14 +3,13 @@ import "./Styles/styles.scss"
 import Menu from "./menu"
 import Whowe from "./whowe"
 import Home from "./home";
-import uuid from 'react-uuid';
+import { v4 as uuidv4 } from 'uuid';
 import { data, or} from "./data";
 
 var li = []
 var rli=[]
 var lick = []
 var cou = 1
-
 
 class Body extends React.Component{
   constructor(props){
@@ -20,7 +19,8 @@ class Body extends React.Component{
       nuevo:[],
       check:[],
       co:0,
-      pric : ""
+      pric : "",
+      nicart:0
       }
     }
 
@@ -30,19 +30,20 @@ clean=()=>{
   }
   
 selec=(combo)=>{
+  this.setState({nicart:this.state.nicart+1})
   for(var i in or){
-    if(or[i]==data[combo].price){
+    if(or[i]===data[combo].price){
       var newpri=or[i]*data[combo].num
       
     }
   }
   this.setState({pric:newpri})
   //displaying items in cart
-  var cont = <ul id="buy" key={data[combo].name}>
+  var cont = <ul id="buy" key={uuidv4()}>
   <b>Product</b>  
   <b>Quantity</b> 
   <b>Price</b>
-  <div id="compra"><img src={data[combo].img} alt="combo"></img> {data[combo].name}
+  <div id="compra" key={uuidv4()}><img src={data[combo].img} alt="combo"></img> {data[combo].name}
   <button id="decrease" onClick={()=>{
     new Promise((mr)=>{
       
@@ -72,7 +73,7 @@ selec=(combo)=>{
     })
   }}>-</button>
 
-  <b id="number">{data[combo].num}</b>
+  <b id="number" >{data[combo].num}</b>
   <button id="increment" onClick={()=>{
     
     new Promise((mr)=>{
@@ -84,7 +85,7 @@ selec=(combo)=>{
       //incresing the quantity of items using the button +
       data[combo].num = data[combo].num+1
       for(var i in or){
-        if(or[i]==data[combo].price){
+        if(or[i]===data[combo].price){
           var newpri=or[i]*data[combo].num
           
         }
@@ -116,7 +117,7 @@ selec=(combo)=>{
     
   } 
   }>+</button>
-  <b id="price">${this.state.pric}</b>
+  <b id="price" >${this.state.pric}</b>
   </div>
 </ul>
 if(this.state.check.includes(data[combo].name)===false && this.state.check.includes("")===false) {
@@ -141,14 +142,14 @@ componentDidMount(){
      the items in the right columm are stored in the rli array*/
      if(cou%2===1){
         if(j !== "num" && j==="img") {
-        li.push(<img src={data[i][j]} alt="combo" key={uuid()}></img>)
+        li.push(<img src={data[i][j]} alt="combo" key={uuidv4()}></img>)
       }
       if(j !== "num" && j==="price") {
-        li.push(<p class="priceco" key={uuid()}>${data[i][j]}</p>)
+        li.push(<p className="priceco" key={uuidv4()}>${data[i][j]}</p>)
       }
 
       if(j==="name"){
-        li.push(<button id = {data[i].name}  key={uuid()} onClick={(e)=>{
+        li.push(<button id = {data[i].name}  key={uuidv4()} onClick={(e)=>{
           new Promise((mf)=>{
           mf()
           })
@@ -160,7 +161,7 @@ componentDidMount(){
       }
 
       if(j !== "num" && j!=="img" && j!=="price") {
-        li.push(<p key={uuid()}>{data[i][j]}</p>,)
+        li.push(<p key={uuidv4()}>{data[i][j]}</p>,)
       }
       
     }
@@ -170,14 +171,14 @@ componentDidMount(){
      the items in the right columm are stored in the rli array*/
     if(cou%2===0){
       if(j !== "num" && j==="img") {
-        rli.push(<img src={data[i][j]} alt="combo" key={uuid()}></img>)
+        rli.push(<img src={data[i][j]} alt="combo" key={uuidv4()}></img>)
       }
       if(j !== "num" && j==="price") {
-        rli.push(<p class="priceco" key={uuid()}>${data[i][j]}</p>)
+        rli.push(<p className="priceco" key={uuidv4()}>${data[i][j]}</p>)
       }
 
       if(j==="name"){
-        rli.push(<button id = {data[i].name}  key={uuid()} onClick={(e)=>{
+        rli.push(<button id = {data[i].name}  key={uuidv4()} onClick={(e)=>{
           new Promise((mf)=>{
           mf()
           })
@@ -190,7 +191,7 @@ componentDidMount(){
       }
 
       if(j !== "num" && j!=="img" && j!=="price") {
-        rli.push(<p key={uuid()}>{data[i][j]}</p>,)
+        rli.push(<p key={uuidv4()}>{data[i][j]}</p>,)
         }
       }
     }
@@ -205,11 +206,11 @@ render(){
             <button onClick={()=>{
             //display items in menu
               this.setState({content:<Menu cont={[
-              <div id="pali">
-              <div id="comb" key={uuid()} >{li.map(v=>{return v})}</div>
+              <div id="pali" key={uuidv4()}>
+              <div id="comb" key={uuidv4()} >{li.map(v=>{return v})}</div>
               </div>,
-              <div id="parli">
-              <div id="combr" key={uuid()} >{rli.map(v=>{return v})}</div>
+              <div id="parli" key={uuidv4()}>
+              <div id="combr" key={uuidv4()} >{rli.map(v=>{return v})}</div>
               </div>
               
             ]}/>}) 
@@ -222,10 +223,19 @@ render(){
              this.setState({content:<Whowe/>})}}id="aboutbutton">About us</button>
          </ul>
           <div id="car" onClick={()=>{
-            this.setState({content:this.state.nuevo})
-          }}><img src="https://media.istockphoto.com/vectors/shopping-cart-icon-vector-id1142859120?k=20&m=1142859120&s=170667a&w=0&h=mDJbGHOildt4Ip7TOmNt2IN9icVMyvd0_ByrqYhpAVA="/>
+            if(this.state.nuevo.length===0){
+             this.setState({content:<img id="emptycar"  alt="emptycart"
+             src="https://cdn.dribbble.com/users/844846/screenshots/2981974/empty_cart_800x600_dribbble.png"/>}) 
+            }
+            else{
+              this.setState({content:this.state.nuevo})
+            }
+            
+          }}>
+            <p>{this.state.nicart}</p>
+            <img alt="cart" src="https://media.istockphoto.com/vectors/shopping-cart-icon-vector-id1142859120?k=20&m=1142859120&s=170667a&w=0&h=mDJbGHOildt4Ip7TOmNt2IN9icVMyvd0_ByrqYhpAVA="/>
           </div>
-         <div key={uuid()}>{this.state.content}</div>
+         <div key={uuidv4()}>{this.state.content}</div>
         </>
          ) 
           }
