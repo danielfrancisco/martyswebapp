@@ -185,6 +185,7 @@ body{
       width:70px;
       font-size: 25px;
       margin-top: 56px;
+      
     }
   }
   
@@ -193,7 +194,8 @@ body{
     @include combos(121vh,0vw);
     button{
       width: 40px;
-      height: 40px
+      height: 40px;
+      
     }
     
   }
@@ -206,7 +208,8 @@ body{
     button{
       width: 40px;
       height: 40px;
-      left: -20px;
+      left: -30px;
+      z-index: 5;
       
     }
   }
