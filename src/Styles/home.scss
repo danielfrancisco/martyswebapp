@@ -7,12 +7,18 @@
   background: black;
   font-weight: bold;
   height: 60vh;
+  width: 100%;
+  overflow-y: hidden;
+  overflow-x: hidden;
+  background-color: black;
+  
   #hero{
       position: relative;
       left: 50vw;
       top: 14vh;
       font-size: 2.5vw;
       color: white;
+    
   }
   button{
       font-size: 1vw;
@@ -33,7 +39,7 @@
       top: -20vh;
       height: 55vh;
       left: 9vw;
-      overflow-y: hidden;
+      
   }
 
   

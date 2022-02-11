@@ -4,6 +4,8 @@
 @import "home";
 @import "try";
 
+
+
 #emptycar{
   position: relative;
   left: 23vw;
@@ -49,8 +51,10 @@ body{
     @media (max-width:500px) {
       #menubutton{
         font-size: 5vw;
-        left: 38vw
+        left: 38vw;
       }
+
+      
 
       #homebutton{
         left: -15vw;
@@ -142,6 +146,8 @@ body{
 }
 
 @media screen and(max-width:600px) {
+
+
   #car{
     
     p{
@@ -157,7 +163,9 @@ body{
 }
 
 @media  screen and (max-width:600px) {
-
+  #home{
+    padding-left: 41px;
+  }
   #try{
     font-size:40px;
     left: 70px;
