@@ -92,44 +92,6 @@ body{
   @include buy
   }
 
-
-  @media  screen and (max-width:600px) {
-    #combr{
-      @include combos(121vh,0vw);
-      button{
-        width: 40px;
-        height: 40px
-      }
-      
-    }
-  
-    #comb{
-      p{
-        
-        width: 54px;
-      }
-      button{
-        width: 40px;
-        height: 40px;
-        left: -20px;
-        
-      }
-    }
-
-    #buy{
-      @include buy;
-      b{
-        position: relative;
-        left: -24vw;
-      }
-      img{
-       display: none
-      }
-    }
-  }
-
-
-
 #home{
   @include home;
   @media (max-width:$mobile){
@@ -175,7 +137,8 @@ body{
 }
 
 #try{
- @include try
+ @include try;
+ 
 }
 
 @media screen and(max-width:600px) {
@@ -190,6 +153,54 @@ body{
    width: 100%;
  }
   
+
+}
+
+@media  screen and (max-width:600px) {
+
+  #try{
+    font-size:40px;
+    left: 70px;
+    button{
+      height: 70px;
+      width:70px;
+      font-size: 25px;
+      margin-top: 56px;
+    }
+  }
+  
+  #combr{
+    @include combos(121vh,0vw);
+    button{
+      width: 40px;
+      height: 40px
+    }
+    
+  }
+
+  #comb{
+    p{
+      
+      width: 54px;
+    }
+    button{
+      width: 40px;
+      height: 40px;
+      left: -20px;
+      
+    }
+  }
+
+  #buy{
+    @include buy;
+    b{
+      position: relative;
+      left: -24vw;
+    }
+    img{
+     display: none
+    }
+  }
 
 }
 
