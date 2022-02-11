@@ -7,7 +7,7 @@ class Try extends React.Component{
       super(props)
       this.state={
         content:<div id="try">
-        <p>Coming soon</p>
+        <p>Coming soon!</p>
         <button onClick={()=>{
           this.setState({content:<Home/>})
         }}>Go back</button>
