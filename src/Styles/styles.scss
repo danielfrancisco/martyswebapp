@@ -83,25 +83,6 @@ body{
   
 }
 
-@media  screen and (max-width:600px) {
-  #combr{
-    @include combos(121vh,0vw);
-    button{
-      width: 40px;
-      height: 40px
-    }
-    
-  }
-
-  #comb{
-    button{
-      width: 40px;
-      height: 40px;
-      left: -30px;
-    }
-  }
-}
-
 
 #cowboy{
   @include combos(29vh,55vw);
@@ -110,6 +91,44 @@ body{
 #buy{
   @include buy
   }
+
+
+  @media  screen and (max-width:600px) {
+    #combr{
+      @include combos(121vh,0vw);
+      button{
+        width: 40px;
+        height: 40px
+      }
+      
+    }
+  
+    #comb{
+      p{
+        
+        width: 54px;
+      }
+      button{
+        width: 40px;
+        height: 40px;
+        left: -20px;
+        
+      }
+    }
+
+    #buy{
+      @include buy;
+      b{
+        position: relative;
+        left: -24vw;
+      }
+      img{
+       display: none
+      }
+    }
+  }
+
+
 
 #home{
   @include home;
