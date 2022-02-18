@@ -81,7 +81,9 @@ selec=(combo)=>{
     })
     .then(()=>{
       for(var i in lick){
-        this.selec(lick[i])
+        if(lick[i]===" "===false){
+          this.selec(lick[i])
+        }
         
       }
     })
@@ -124,8 +126,11 @@ selec=(combo)=>{
     })
     .then(()=>{
       for(var i in lick){
-        //ading items already updated to cart 
-        this.selec(lick[i])
+        //ading items already updated to cart
+        if(lick[i]===" "===false){
+          this.selec(lick[i])
+        }
+        
       }
     })
     
