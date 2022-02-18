@@ -172,10 +172,14 @@ selec=(combo)=>{
           }
         }
       }
-      
       }
-    
-    )
+   )
+   .then(()=>{
+     if(this.state.nicart===0){
+      this.setState({content:<img id="emptycar"  alt="emptycart"
+      src="https://cdn.dribbble.com/users/844846/screenshots/2981974/empty_cart_800x600_dribbble.png"/>}) 
+     }
+   })
     
     
     
