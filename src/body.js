@@ -26,7 +26,9 @@ class Body extends React.Component{
       nicart:0
       }
     }
-
+componentDidMount(){
+  nne = [...this.state.nuevo]
+}
     
 
  recar = () =>{
@@ -69,15 +71,15 @@ selec=(combo)=>{
       this.setState({nuevo:[]})
       
       for(var i in this.state.check){
-        lick.push(this.state.check[i])
+        nnc.push(this.state.check[i])
       }
       this.setState({check:[]})
       
     })
     .then(()=>{
-      for(var i in lick){
-        if(lick[i]===" "===false){
-          this.selec(lick[i])
+      for(var i in nnc){
+        if(nnc[i]===" "===false){
+          this.selec(nnc[i])
         }
         
       }
@@ -113,17 +115,17 @@ selec=(combo)=>{
         /*adding elements to an array to use it to know the 
         items that were selected before, the items are added from the end to the
         beginig of the array because the items change position whe added again*/
-       lick.push(this.state.check[(this.state.check.length-1)-i])
+       nnc.push(this.state.check[(this.state.check.length-1)-i])
        //the documentation in this button "+" also explains the button "-"
       }
       //emptiying the check array so the items can be updated
       this.setState({check:[]})
     })
     .then(()=>{
-      for(var i in lick){
+      for(var i in nnc){
         //ading items already updated to cart
-        if(lick[i]===" "===false){
-          this.selec(lick[i])
+        if(nnc[i]===" "===false){
+          this.selec(nnc[i])
           
         }
         
@@ -143,7 +145,7 @@ selec=(combo)=>{
      maf()
      this.recar()
      this.setState({check:nnc})
-     this.setState({lick:nnc})
+     
     })
     .then(()=>{
       this.recar()
@@ -156,6 +158,10 @@ selec=(combo)=>{
       this.setState({check:nnc})
     })
     .then(()=>{
+      this.setState({lick:nnc})
+    })
+    .then(()=>{
+      console.log("nnc:",nnc)
       
     }
     
