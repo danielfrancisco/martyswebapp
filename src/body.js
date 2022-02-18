@@ -10,6 +10,8 @@ var li = []
 var rli=[]
 var lick = []
 var cou = 1
+var nne = []
+var nnc = []
 
 class Body extends React.Component{
   constructor(props){
@@ -23,6 +25,17 @@ class Body extends React.Component{
       nicart:0
       }
     }
+
+    cheifem=()=>{
+      if(this.state.nuevo.length===0){
+        console.log("hello")
+        
+       }
+    }
+
+ recar = () =>{
+  this.setState({content:this.state.nuevo})
+ }
 
 clean=()=>{
     this.setState({content:undefined})
@@ -118,6 +131,32 @@ selec=(combo)=>{
   } 
   }>+</button>
   <b id="price" >${this.state.pric}</b>
+  <button id="remove" onClick={()=>{
+     nne = [...this.state.nuevo]
+     nne[this.state.check.indexOf(combo)] = " "
+    nnc = [...this.state.check]
+    console.log(nnc)
+     nnc[this.state.check.indexOf(combo)] = " "
+    this.setState({nuevo:nne})
+    new Promise((maf)=>{
+     maf()
+     this.recar()
+     this.setState({check:nnc})
+    })
+    .then(()=>{
+      this.recar()
+    })
+    .then(()=>{
+      this.setState({nicart:this.state.nicart-1})
+    })
+    .then(()=>{
+      this.setState({check:nnc})
+    })
+    console.log(nnc)
+    
+    
+    
+  }}>X</button>
   </div>
 </ul>
 if(this.state.check.includes(data[combo].name)===false && this.state.check.includes("")===false) {

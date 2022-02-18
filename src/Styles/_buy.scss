@@ -34,7 +34,10 @@
       position: relative;
       left: 7vw;
       border: none;
-      background: gray;
+      background: white;
+      font-size: large;
+      cursor: pointer;
+      
       
     }
   #compra{
@@ -60,8 +63,10 @@
       left: 3vw;
       font-weight: normal;
       
-      
-  }#increment{
+       }
+
+       
+  #increment{
     @include addorremove;
     
   }
