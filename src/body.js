@@ -12,6 +12,7 @@ var lick = []
 var cou = 1
 var nne = []
 var nnc = []
+var carcoun = 0
 
 class Body extends React.Component{
   constructor(props){
@@ -148,6 +149,7 @@ selec=(combo)=>{
     })
     .then(()=>{
       this.setState({nicart:this.state.nicart-1})
+      carcoun = carcoun+1
     })
     .then(()=>{
       this.setState({check:nnc})
@@ -164,7 +166,7 @@ if(this.state.check.includes(data[combo].name)===false && this.state.check.inclu
   this.setState({nuevo:[cont].concat(this.state.nuevo)})
   //array used it to check if an elemnt was already added to the cart
   this.setState({check:[data[combo].name].concat(this.state.check)})
-  this.setState({nicart:this.state.nuevo.length})
+  this.setState({nicart:this.state.nuevo.length-carcoun})
 }
 //switching to cart page
 this.setState({content:this.state.nuevo})
