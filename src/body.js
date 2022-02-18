@@ -27,12 +27,7 @@ class Body extends React.Component{
       }
     }
 
-    cheifem=()=>{
-      if(this.state.nuevo.length===0){
-        console.log("hello")
-        
-       }
-    }
+    
 
  recar = () =>{
   this.setState({content:this.state.nuevo})
@@ -129,6 +124,7 @@ selec=(combo)=>{
         //ading items already updated to cart
         if(lick[i]===" "===false){
           this.selec(lick[i])
+          
         }
         
       }
@@ -141,13 +137,13 @@ selec=(combo)=>{
      nne = [...this.state.nuevo]
      nne[this.state.check.indexOf(combo)] = " "
     nnc = [...this.state.check]
-    console.log(nnc)
-     nnc[this.state.check.indexOf(combo)] = " "
+    nnc[this.state.check.indexOf(combo)] = " "
     this.setState({nuevo:nne})
     new Promise((maf)=>{
      maf()
      this.recar()
      this.setState({check:nnc})
+     this.setState({lick:nnc})
     })
     .then(()=>{
       this.recar()
@@ -159,7 +155,11 @@ selec=(combo)=>{
     .then(()=>{
       this.setState({check:nnc})
     })
-    console.log(nnc)
+    .then(()=>{
+      
+    }
+    
+    )
     
     
     
@@ -171,7 +171,7 @@ if(this.state.check.includes(data[combo].name)===false && this.state.check.inclu
   this.setState({nuevo:[cont].concat(this.state.nuevo)})
   //array used it to check if an elemnt was already added to the cart
   this.setState({check:[data[combo].name].concat(this.state.check)})
-  this.setState({nicart:this.state.nuevo.length-carcoun})
+  
 }
 //switching to cart page
 this.setState({content:this.state.nuevo})
@@ -196,6 +196,7 @@ componentDidMount(){
 
       if(j==="name"){
         li.push(<button id = {data[i].name}  key={uuidv4()} onClick={(e)=>{
+          this.setState({nicart:this.state.nicart+1})
           new Promise((mf)=>{
           mf()
           })
@@ -224,7 +225,9 @@ componentDidMount(){
       }
 
       if(j==="name"){
+        
         rli.push(<button id = {data[i].name}  key={uuidv4()} onClick={(e)=>{
+          this.setState({nicart:this.state.nicart+1})
           new Promise((mf)=>{
           mf()
           })
