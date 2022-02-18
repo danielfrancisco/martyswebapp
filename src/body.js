@@ -167,7 +167,7 @@ selec=(combo)=>{
         
         if(nnc[i]===" " === false){
           nncoun = nncoun+1
-          if(nncoun>1){
+          if(nncoun>1 && nncoun<4){
             nnc = nnc.reverse()
           }
         }
