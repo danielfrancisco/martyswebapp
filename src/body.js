@@ -120,6 +120,7 @@ selec=(combo)=>{
       }
       //emptiying the check array so the items can be updated
       this.setState({check:[]})
+      console.log(nnc)
     })
     .then(()=>{
       for(var i in nnc){
@@ -161,9 +162,18 @@ selec=(combo)=>{
       this.setState({lick:nnc})
     })
     .then(()=>{
-      console.log("nnc:",nnc)
+      let nncoun = 0
+      for(let i in nnc){
+        
+        if(nnc[i]===" " === false){
+          nncoun = nncoun+1
+          if(nncoun>1){
+            nnc = nnc.reverse()
+          }
+        }
+      }
       
-    }
+      }
     
     )
     
