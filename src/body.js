@@ -4,7 +4,8 @@ import Menu from "./menu"
 import Whowe from "./whowe"
 import Home from "./home";
 import { v4 as uuidv4 } from 'uuid';
-import { data, or} from "./data";
+import {or} from "./or"
+import data from "./data.json"
 
 var li = []
 var rli=[]
@@ -13,6 +14,7 @@ var cou = 1
 var nne = []
 var nnc = []
 var carcoun = 0
+
 
 class Body extends React.Component{
   constructor(props){
@@ -28,6 +30,7 @@ class Body extends React.Component{
     }
 componentDidMount(){
   nne = [...this.state.nuevo]
+  
 }
     
 
