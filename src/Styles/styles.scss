@@ -1,17 +1,190 @@
 @import "nav";
 @import "combos";
-@import "buy";
 @import "home";
 @import "try";
-
-
-
 #emptycar{
   position: relative;
   left: 19vw;
 }
 
+#menuItemsLe{
+  margin-top: 100px;
+  position: absolute;
+  top: 20vh;
+  left: 55vw;
+  font-family: Arial;
+  font-weight: bold;
+  img{
+    height: 200px;
+    width: 300px;
+    
+  }
+  button{
+    display: inline;
+    background: black;
+    color:white;
+    border: none;
+    font-family: Arial;
+    height: 5.2vh;
+    width: 6vw;
+    position: relative;
+    cursor: pointer;
+    border-radius: 16px;
+    font-weight: bold;
+    margin-bottom: 50px;
+    &:hover{
+        background: green;
+        
+    }
+  }
+ 
+}
+
+#menuItemsRi{
+  position: absolute;
+  left: 20vw;
+  font-weight: bold;
+  font-family: Arial;
+  margin-top: 100px;
+  width: 300px;
+  img{
+    height: 200px;
+    width: 300px;
+  }
+
+  button{
+    display: inline;
+    background: black;
+    color:white;
+    border: none;
+    font-family: Arial;
+    height: 5.2vh;
+    width: 6vw;
+    position: relative;
+    cursor: pointer;
+    border-radius: 16px;
+    margin-bottom: 50px;
+    &:hover{
+        background: green;
+    }
+  }
+}
+
+
+#cartBag{
+  position: relative;
+  left: 15vw;
+  top: 5vh;
+  display: inline;
+  div{
+    margin-top: 70px;
+  }
+  p{
+    display: inline;
+    margin-left: 60px;
+    font-family: Arial;
+    font-size: 16px;
+    font-weight: bold;
+    position: relative;
+    bottom: 10vh;
+  }
+  img{
+    display: inline;
+    
+    margin-left: 35px;
+    height: 100px;
+    height: 200px;
+    
+  }
+  button{
+    cursor: pointer;
+    position: relative;
+    bottom: 10vh;
+  }
+}
+
+#addOne{
+  background-color: black;
+  color: white;
+  border: none;
+  height: 25px;
+  width: 25px;
+  border-radius: 3px;
+  font-weight: bold;
+  font-size: 18px;
+  margin-left: 35px;
+}
+
+#removeOne{
+  background-color: black;
+  color: white;
+  border: none;
+  height: 25px;
+  width: 25px;
+  margin-left: 35px;
+  border-radius: 3px;
+  font-weight: bold;
+  font-size: 18px;
+}
+
+#remove{
+  background-color: black;
+  color: white;
+  font-size: 16px;
+  height: 28px;
+  width:  70px;
+  margin-left: 20px;
+  font-family: Arial;
+  border: none;
+  font-weight: bold;
+  border-radius: 3px;
+}
+
+#addOne:hover{
+  color: green;
+}
+
+#removeOne:hover{
+  color: red;
+}
+
+#remove:hover{
+   color: red;
+}
+
+#cart{
+  position: relative;
+  top: 60px;
+  left: 71vw;
+  
+  height: 70px;
+  width: 90px;
+  cursor: pointer;
+  img{
+    height: 70px;
+    width: 90px;
+    
+  }
+  p{
+    cursor: pointer;
+    background-color: orange;
+    height: 20px;
+    width: 20px;
+    text-align: center;
+    border-radius: 50px;
+    position: relative;
+    top: -85px;
+    left: 60px;
+    color: black;
+    font-family: Arial;
+    font-weight: bold;
+  }
+}
+
+
+
 #car{
+  
    font-size: 2vw;
    font-family: Roboto;
    margin-left: 80vw;
@@ -92,10 +265,6 @@ body{
   @include combos(29vh,55vw);
 }
 
-#buy{
-  @include buy;
-  
-  }
 
 #home{
   @include home;
@@ -191,24 +360,7 @@ body{
      padding-right: 50px;
    }
 
-    #car{
-      top: 6vh;
-      z-index: 2;
-    }
-    #emptycar{
-      top: 0vh;
-      left: -20vw;
-      width: 100vw;
-      height: 50vh;
-      img{
-       width: 700vw;
-       position: relative;
-       
-      }
-    }
-  
-  
-
+   
   #home{
     padding-left: 41px;
     padding-right: 49px;
@@ -236,47 +388,11 @@ body{
       
     }
   }
-  
-  #combr{
-    
-    @include combos(121vh,0vw);
-    button{
-      width: 40px;
-      height: 40px;
-      
-    }
-    
-  }
-
-  #comb{
-    p{
-      
-      width: 54px;
-    }
-    button{
-      width: 40px;
-      height: 40px;
-      left: -30px;
-      z-index: 5;
-      
-    }
-  }
-
-  #buy{
-    @include buy;
-    b{
-      position: relative;
-      left: -24vw;
-    }
-    img{
-     display: none
-    }
-  }
-
 }
+  
+    
 
 
-
-
+  
 
 

@@ -1,26 +1,22 @@
 import React from "react";
 import "./Styles/styles.scss";
-import Home from "./home"
-
-class Try extends React.Component{
-    constructor(props){
-      super(props)
-      this.state={
-        content:<div id="try">
-        <p>Coming soon!</p>
-        <button onClick={()=>{
-          this.setState({content:<Home/>})
-        }}>Go back</button>
-    </div>
-      }
-  }
-    render(){
+import Nav from "./nav";
+export function Try (){
+    
       return(
         <>
-           {this.state.content}
+        <Nav/>
+        <div id="try">
+        <p>Coming soon!</p>
+        <button onClick={
+          ()=>{
+            window.location.hash="/";
+          }
+        }>Go back</button>
+        </div>
         </>
         )
-    }
+    
   }
   
   export default Try
