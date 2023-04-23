@@ -1,8 +1,16 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
+
 
 export default function CartIcon(props){
      const[coun,scoun]=useState(0)
      
+     useEffect(()=>{
+       if(props.coun!==undefined){
+        scoun(props.coun)
+       }
+       
+     },[props.coun])
+
      return(
         <>
         <div id="cart" 

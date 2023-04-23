@@ -19,6 +19,7 @@ function Home (){
         <>
        <Nav/>         
        <CartIcon/>
+       
         <div id="home">
           <ul id="hero">
           <p>{header}</p>

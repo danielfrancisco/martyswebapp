@@ -2,6 +2,26 @@
 @import "combos";
 @import "home";
 @import "try";
+
+@mixin button{
+  display: inline;
+  background: black;
+  color:white;
+  border: none;
+  font-family: Arial;
+  height: 5.2vh;
+  width: 6vw;
+  position: relative;
+  cursor: pointer;
+  border-radius: 16px;
+  font-weight: bold;
+  margin-bottom: 50px;
+  &:hover{
+      background: green;
+      
+  }
+}
+
 #emptycar{
   position: relative;
   left: 19vw;
@@ -19,26 +39,27 @@
     width: 300px;
     
   }
-  button{
-    display: inline;
-    background: black;
-    color:white;
-    border: none;
-    font-family: Arial;
-    height: 5.2vh;
-    width: 6vw;
-    position: relative;
-    cursor: pointer;
-    border-radius: 16px;
-    font-weight: bold;
-    margin-bottom: 50px;
-    &:hover{
-        background: green;
-        
-    }
-  }
  
 }
+
+.buttonBuy{
+  @include button()
+}
+
+
+
+
+.viewCartClass{
+  @include button();
+  background-color: #073042;
+  width: 100px;
+}
+
+.viewCartClass:hover{
+  background-color: #073042;
+  
+}
+
 
 #menuItemsRi{
   position: absolute;
@@ -52,24 +73,7 @@
     width: 300px;
   }
 
-  button{
-    display: inline;
-    background: black;
-    color:white;
-    border: none;
-    font-family: Arial;
-    height: 5.2vh;
-    width: 6vw;
-    position: relative;
-    cursor: pointer;
-    border-radius: 16px;
-    margin-bottom: 50px;
-    &:hover{
-        background: green;
-    }
-  }
 }
-
 
 #cartBag{
   position: relative;
@@ -181,7 +185,17 @@
   }
 }
 
-
+#cart:hover{
+  img{
+    height: 82px;
+    width: 102px;
+  }
+  p{
+    top: -92px;
+    left: 65px;
+  }
+ 
+}
 
 #car{
   
