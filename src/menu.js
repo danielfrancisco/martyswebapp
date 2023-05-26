@@ -8,22 +8,37 @@ import CartIcon from "./cartIcon";
 let data = axios.get("http://localhost:3000/menu")
 
 function Menu(){
-
   const[product,sproduct] = useState([])
   const[coun,scoun]  = useState(0)
-  const[buy,sbuy]  = useState("")
-  const[view,sview]  = useState("none")
+  const[buy]  = useState("")
+  const[view]  = useState("none")
 
-useEffect(()=>{   
-   data.then(data=>{
-    for(let i in data.data){
-      sproduct(product=>[...product,data.data[i]])
-    }
-    
-   })
-},[])
+  useEffect(()=>{
+    let Cartdata = axios.get("http://localhost:3000/cart")
+    Cartdata.then(v=>{
+      scoun(v.data.coun)
+      for(let i in v.data.items){
+        for(let j in product){
+          if(v.data.items[i].name===product[j].name){
+            document.getElementById("b"+j).style.display="none"
+            document.getElementById(+j).style.display="inline"
+          }
+        }
+      }
+    })
+  },[product])
 
-return(
+  useEffect(()=>{   
+    data.then(data=>{
+      
+      for(let i in data.data){
+        sproduct(product=>[...product,data.data[i]])
+      }
+      
+    })
+  },[])
+
+ return(
           <>
           <Nav />
           <CartIcon coun={coun}/>
@@ -53,10 +68,10 @@ return(
                         data
                     })
                   }
-                }>Buy</button>
+                }>Add to cart</button>
                 <button id={i} className="viewCartClass" style={{display:view}} onClick={
                   ()=>{window.location.hash="/cart";}
-                }>View in Cart</button>
+                }>View in cart</button>
                 </div>
               }
               return null
@@ -66,7 +81,6 @@ return(
            <div id="menuItemsRi">
             {product.map((data,i)=>{
               let  buyid = "b"+i
-              
               if((i+1)>product.length/2){
                 return <div key={i}>
                 <p>{data.name}</p>
@@ -91,10 +105,10 @@ return(
                     
                     
                   }
-                }>Buy</button>
+                }>Add to cart</button>
                 <button id={i} className="viewCartClass" style={{display:view}} onClick={
                   ()=>{window.location.hash="/cart";}
-                }>View in Cart</button>
+                }>View in cart</button>
                 </div>
               }
               return null
@@ -104,8 +118,10 @@ return(
         )
 }    
   
-
 export default Menu
+
+
+
 
 
 

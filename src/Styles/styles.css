@@ -1,19 +1,149 @@
-body {
-  margin: 0;
+#menuItemsLe {
+  margin-top: 100px;
+  position: absolute;
+  top: 20vh;
+  left: 55vw;
+  font-family: Arial;
+  font-weight: bold;
+}
+#menuItemsLe img {
+  height: 200px;
+  width: 300px;
 }
 
-.nav {
+.buttonBuy {
+  display: inline;
+  background: black;
+  color: white;
+  border: none;
+  font-family: Arial;
+  height: 5.2vh;
+  width: 6vw;
+  position: relative;
+  cursor: pointer;
+  border-radius: 16px;
+  font-weight: bold;
+  margin-bottom: 50px;
+}
+.buttonBuy:hover {
+  background: green;
+}
+
+.viewCartClass {
+  display: inline;
+  background: black;
+  color: white;
+  border: none;
+  font-family: Arial;
+  height: 5.2vh;
+  width: 6vw;
+  position: relative;
+  cursor: pointer;
+  border-radius: 16px;
+  font-weight: bold;
+  margin-bottom: 50px;
+  background-color: #073042;
+  width: 100px;
+}
+.viewCartClass:hover {
+  background: green;
+}
+
+.viewCartClass:hover {
+  background-color: #073042;
+}
+
+#menuItemsRi {
+  position: absolute;
+  left: 20vw;
+  font-weight: bold;
+  font-family: Arial;
+  margin-top: 100px;
+  width: 300px;
+}
+#menuItemsRi img {
+  height: 200px;
+  width: 300px;
+}
+
+#cart {
+  position: relative;
+  top: 60px;
+  left: 71vw;
+  height: 70px;
+  width: 90px;
+  cursor: pointer;
+}
+#cart img {
+  height: 70px;
+  width: 90px;
+}
+#cart p {
+  cursor: pointer;
+  background-color: orange;
+  height: 20px;
+  width: 20px;
+  text-align: center;
+  border-radius: 50px;
+  position: relative;
+  top: -85px;
+  left: 60px;
+  color: black;
+  font-family: Arial;
+  font-weight: bold;
+}
+
+#cart:hover img {
+  height: 82px;
+  width: 102px;
+}
+#cart:hover p {
+  top: -92px;
+  left: 65px;
+}
+
+#car {
+  font-size: 2vw;
+  font-family: Roboto;
+  margin-left: 80vw;
+  position: relative;
+  top: 8vh;
+  cursor: pointer;
+  width: 5vw;
+}
+#car img {
+  height: 56px;
+  width: 56px;
+}
+#car p {
+  font-size: 15px;
+  background-color: orange;
+  color: white;
+  width: 1.5vw;
+  border-radius: 50%;
+  position: relative;
+  left: 5vh;
+  top: 5vh;
+  text-align: center;
+}
+
+body {
+  margin: 0;
+  overflow-x: hidden;
+}
+
+#nav {
   height: 4vh;
   list-style-type: none;
   font-family: Arial;
   position: relative;
   top: 7vh;
-  background: black;
+  background: rgb(176, 23, 31);
   color: white;
   padding-top: 1.5vh;
+  width: 100%;
 }
-
-.nav button {
+#nav button {
   outline: none;
   padding-right: 2vw;
   font-size: 1vw;
@@ -24,42 +154,28 @@ body {
   cursor: pointer;
   padding-top: 10px;
   border: none;
-  background: black;
+  background: rgb(176, 23, 31);
   padding: 0vw;
   color: white;
   margin-right: 2vw;
 }
-
-.nav button:hover {
-  border: solid;
-  border-top: none;
-  border-left: none;
-  border-right: none;
-  border-color: white;
-  border-width: normal;
+#nav button:hover {
+  color: black;
   padding-bottom: 0.9vh;
 }
-
-#martysrender {
-  font-family: Arial;
-  position: relative;
-  top: 50vh;
-  left: 20vw;
-  font-weight: bold;
-  position: fixed;
-}
-
-#cowboyrender {
-  font-family: Arial;
-  position: relative;
-  top: 50vh;
-  left: 60vw;
-  font-weight: bold;
-  position: fixed;
-}
-
-p {
-  position: relative;
-  top: 10vh;
-}
-/*# sourceMappingURL=styles.css.map */
+@media (max-width: 500px) {
+  #nav #menubutton {
+    font-size: 5vw;
+    left: 38vw;
+  }
+  #nav #homebutton {
+    left: -15vw;
+    font-size: 5vw;
+  }
+  #nav #aboutbutton {
+    display: none;
+  }
+  #nav button:hover {
+    border: none;
+  }
+}/*# sourceMappingURL=styles.css.map */

@@ -5,9 +5,20 @@ import axios from "axios"
 import CartIcon from "./cartIcon";
 
 let headerReq = axios.get("http://localhost:3000/")
+let cart = axios.get("http://localhost:3000/cart")
 
 function Home (){
   const[header,shedaer]=useState("")
+  const[coun,scoun]=useState("")
+  
+  useEffect(()=>{
+   cart = axios.get("http://localhost:3000/cart")
+   
+    cart.then(data=>{
+     scoun(data.data.coun)
+     })
+   
+  },[])
   
   useEffect(()=>{
     headerReq.then(data=>{
@@ -18,7 +29,7 @@ function Home (){
      return(
         <>
        <Nav/>         
-       <CartIcon/>
+       <CartIcon coun={coun}/>
        
         <div id="home">
           <ul id="hero">

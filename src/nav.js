@@ -28,7 +28,7 @@ export default function Nav(){
               window.location.hash="/about";
             }
           }
-           >About
+           >About us
            </button>
          </ul>
         </>

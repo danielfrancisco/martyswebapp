@@ -1,0 +1,84 @@
+#emptyCart {
+  height: 90vh;
+  position: relative;
+  left: 14vw;
+}
+
+#cartBag {
+  position: relative;
+  left: 15vw;
+  top: 5vh;
+  display: inline;
+}
+#cartBag div {
+  margin-top: 70px;
+}
+#cartBag p {
+  display: inline;
+  margin-left: 60px;
+  font-family: Arial;
+  font-size: 16px;
+  font-weight: bold;
+  position: relative;
+  bottom: 10vh;
+}
+#cartBag img {
+  display: inline;
+  margin-left: 35px;
+  height: 100px;
+  height: 200px;
+}
+#cartBag button {
+  cursor: pointer;
+  position: relative;
+  bottom: 10vh;
+}
+
+#removeOne {
+  background-color: black;
+  color: white;
+  border: none;
+  height: 25px;
+  width: 25px;
+  margin-left: 35px;
+  border-radius: 3px;
+  font-weight: bold;
+  font-size: 18px;
+}
+
+#remove {
+  background-color: black;
+  color: white;
+  font-size: 16px;
+  height: 28px;
+  width: 70px;
+  margin-left: 20px;
+  font-family: Arial;
+  border: none;
+  font-weight: bold;
+  border-radius: 3px;
+}
+
+#addOne:hover {
+  color: #30b069;
+}
+
+#removeOne:hover {
+  color: red;
+}
+
+#remove:hover {
+  color: red;
+}
+
+#addOne {
+  background-color: black;
+  color: white;
+  border: none;
+  height: 25px;
+  width: 25px;
+  border-radius: 3px;
+  font-weight: bold;
+  font-size: 18px;
+  margin-left: 35px;
+}/*# sourceMappingURL=cart.css.map */

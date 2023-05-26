@@ -3,6 +3,7 @@
 @import "home";
 @import "try";
 
+
 @mixin button{
   display: inline;
   background: black;
@@ -22,10 +23,6 @@
   }
 }
 
-#emptycar{
-  position: relative;
-  left: 19vw;
-}
 
 #menuItemsLe{
   margin-top: 100px;
@@ -45,8 +42,6 @@
 .buttonBuy{
   @include button()
 }
-
-
 
 
 .viewCartClass{
@@ -75,86 +70,6 @@
 
 }
 
-#cartBag{
-  position: relative;
-  left: 15vw;
-  top: 5vh;
-  display: inline;
-  div{
-    margin-top: 70px;
-  }
-  p{
-    display: inline;
-    margin-left: 60px;
-    font-family: Arial;
-    font-size: 16px;
-    font-weight: bold;
-    position: relative;
-    bottom: 10vh;
-  }
-  img{
-    display: inline;
-    
-    margin-left: 35px;
-    height: 100px;
-    height: 200px;
-    
-  }
-  button{
-    cursor: pointer;
-    position: relative;
-    bottom: 10vh;
-  }
-}
-
-#addOne{
-  background-color: black;
-  color: white;
-  border: none;
-  height: 25px;
-  width: 25px;
-  border-radius: 3px;
-  font-weight: bold;
-  font-size: 18px;
-  margin-left: 35px;
-}
-
-#removeOne{
-  background-color: black;
-  color: white;
-  border: none;
-  height: 25px;
-  width: 25px;
-  margin-left: 35px;
-  border-radius: 3px;
-  font-weight: bold;
-  font-size: 18px;
-}
-
-#remove{
-  background-color: black;
-  color: white;
-  font-size: 16px;
-  height: 28px;
-  width:  70px;
-  margin-left: 20px;
-  font-family: Arial;
-  border: none;
-  font-weight: bold;
-  border-radius: 3px;
-}
-
-#addOne:hover{
-  color: green;
-}
-
-#removeOne:hover{
-  color: red;
-}
-
-#remove:hover{
-   color: red;
-}
 
 #cart{
   position: relative;
@@ -347,30 +262,8 @@ body{
 }
 
 @media  screen and (max-width:600px) {
-   #buy{
-     position: relative;
    
-   left: -50px;
-   #compra{
-    
-    #decrease{
-      font-size: 15px;
-      width: 20px;
-    }
-
-    #increment{
-      
-        font-size: 15px;
-        width: 20px;
-      
-    }
-  }
-  }
-
-  
-  
-
-   #nav{
+#nav{
      padding-right: 50px;
    }
 
