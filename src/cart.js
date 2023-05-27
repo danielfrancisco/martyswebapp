@@ -14,9 +14,8 @@ export default function Cart(){
     const[amountItems,samountItems]=useState("")
 
     useEffect(()=>{
-       data.then(v=>{
-        
-        if(items.length<1 && amountItems<2){
+        data.then(v=>{
+        if(amountItems<1){
             sempty("https://cdn.dribbble.com/users/844846/screenshots/2981974/empty_cart_800x600_dribbble.png")
            }
            else{
@@ -24,7 +23,7 @@ export default function Cart(){
            }
        })
        
-    },[items])
+    },[items,amountItems])
 
     useEffect(()=>{
         data = axios.get("http://localhost:3000/cart")
