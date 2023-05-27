@@ -16,7 +16,7 @@ export default function Cart(){
     useEffect(()=>{
        data.then(v=>{
         
-        if(items.length<1){
+        if(items.length<1 && amountItems<2){
             sempty("https://cdn.dribbble.com/users/844846/screenshots/2981974/empty_cart_800x600_dribbble.png")
            }
            else{

@@ -25,14 +25,15 @@
       color: white;
       background-color: #0F52BA;
       border: none;
+      border-radius: 3px;
       font-size: 1.5vw;
       font-weight: bold;
-      &:active{
-          background-color: darkblue;
-      }
       cursor: pointer;
       height: 5vh;
       width: 9vw;
+      &:hover{
+        background-color: #0f6aba;
+      }
   }
   img{
       position: relative;
