@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/%3Cmartyswebapp%3E/static/css/main.7aabb149.chunk.css",
+    "main.js": "/%3Cmartyswebapp%3E/static/js/main.86eb16b6.chunk.js",
+    "main.js.map": "/%3Cmartyswebapp%3E/static/js/main.86eb16b6.chunk.js.map",
+    "runtime-main.js": "/%3Cmartyswebapp%3E/static/js/runtime-main.0d58a688.js",
+    "runtime-main.js.map": "/%3Cmartyswebapp%3E/static/js/runtime-main.0d58a688.js.map",
+    "static/js/2.185e3c4e.chunk.js": "/%3Cmartyswebapp%3E/static/js/2.185e3c4e.chunk.js",
+    "static/js/2.185e3c4e.chunk.js.map": "/%3Cmartyswebapp%3E/static/js/2.185e3c4e.chunk.js.map",
+    "static/js/3.326a0e7a.chunk.js": "/%3Cmartyswebapp%3E/static/js/3.326a0e7a.chunk.js",
+    "static/js/3.326a0e7a.chunk.js.map": "/%3Cmartyswebapp%3E/static/js/3.326a0e7a.chunk.js.map",
+    "index.html": "/%3Cmartyswebapp%3E/index.html",
+    "static/css/main.7aabb149.chunk.css.map": "/%3Cmartyswebapp%3E/static/css/main.7aabb149.chunk.css.map",
+    "static/js/2.185e3c4e.chunk.js.LICENSE.txt": "/%3Cmartyswebapp%3E/static/js/2.185e3c4e.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.0d58a688.js",
+    "static/js/2.185e3c4e.chunk.js",
+    "static/css/main.7aabb149.chunk.css",
+    "static/js/main.86eb16b6.chunk.js"
+  ]
+}
