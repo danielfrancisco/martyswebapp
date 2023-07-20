@@ -41,8 +41,8 @@ export default function Cart(){
     },[items])
 
     useEffect(()=>{
-     spromiseFullfiled(true)
-      data.then(data=>{
+        spromiseFullfiled(true)
+        data.then(data=>{
         samountItems(data.data.coun)
         for(let i in data.data.items){
             sitems(items=>[...items,data.data.items[i]])
@@ -136,7 +136,7 @@ export default function Cart(){
         <>
             <Nav/>
             <CartIcon coun={amountItems}/>
-           <img id="emptyCart"alt="" src={empty} ref={emptyCart}/>
+           <img id="emptyCart" alt="  " src={empty} ref={emptyCart}/>
            <div id="cartBag">
              
               {items.map((item,itemIndex)=>{
@@ -153,7 +153,14 @@ export default function Cart(){
                     }}>+</button>
                     <button id="remove" onClick={()=>{
                         sitems([])
-                        spromiseFullfiled(false)
+                        
+                        if(items.length>1){
+                            
+                            spromiseFullfiled(false)
+                            
+                        }else{
+                            spromiseFullfiled(true)
+                        }
                         axios.post("https://martysapi.onrender.com/cart",{
                             item
                         })
