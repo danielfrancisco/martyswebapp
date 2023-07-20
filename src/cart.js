@@ -14,10 +14,10 @@ export default function Cart(){
     const[empty,sempty]=useState("")
     const[amountItems,samountItems]=useState("")
     const[promiseFullfiled,spromiseFullfiled]=useState(false) 
-    const emptyCart = useRef()
+   const emptyCart = useRef()
 
     useEffect(()=>{
-        
+        console.log(promiseFullfiled)
         data.then(v=>{
             
             if(items.length<1 && promiseFullfiled===true){
@@ -41,12 +41,11 @@ export default function Cart(){
     },[items])
 
     useEffect(()=>{
+     spromiseFullfiled(true)
       data.then(data=>{
-        
         samountItems(data.data.coun)
         for(let i in data.data.items){
-            spromiseFullfiled(true)
-           sitems(items=>[...items,data.data.items[i]])
+            sitems(items=>[...items,data.data.items[i]])
            scoun(coun=>[...coun,1])
         }
       })
@@ -154,6 +153,7 @@ export default function Cart(){
                     }}>+</button>
                     <button id="remove" onClick={()=>{
                         sitems([])
+                        spromiseFullfiled(false)
                         axios.post("https://martysapi.onrender.com/cart",{
                             item
                         })
