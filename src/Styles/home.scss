@@ -1,5 +1,5 @@
 
-@mixin home {
+@mixin home($buttonTop) {
     
   position: relative;
   top: 10vh;
@@ -11,7 +11,7 @@
   overflow-y: hidden;
   overflow-x: hidden;
   background-color: black;
-  
+  z-index: 2;
   #hero{
       position: relative;
       left: 50vw;
@@ -21,18 +21,21 @@
     
   }
   button{
+      position: relative;
+      top: $buttonTop;
       font-size: 1vw;
       color: white;
       background-color: #0F52BA;
       border: none;
       border-radius: 5px;
-      font-size: 1.5vw;
+      font-size: 18px;
       font-weight: bold;
       cursor: pointer;
-      height: 5vh;
-      width: 9vw;
+      height: 40px;
+      width: 90px;
       &:hover{
         background-color: #0f6aba;
+        color: black;
       }
   }
   img{
@@ -45,7 +48,5 @@
 
   
 }
-
-
 
 

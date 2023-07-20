@@ -1,4 +1,28 @@
-@media screen and (min-width: 1000px) {
-   
-    
+@mixin menuLe($left, $top){
+    margin-top: 100px;
+    position: absolute;
+    top: $top;
+    left: $left;
+    font-family: Arial;
+    font-weight: bold;
+    img{
+      height: 200px;
+      width: 300px;
+      
+    }
 }
+
+@mixin menuRi($left){
+  position: absolute;
+  left: $left;
+  font-weight: bold;
+  font-family: Arial;
+  margin-top: 100px;
+  width: 300px;
+  img{
+    height: 200px;
+    width: 300px;
+  }
+}
+
+

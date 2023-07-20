@@ -12,7 +12,7 @@
   border: none;
   font-family: Arial;
   height: 5.2vh;
-  width: 6vw;
+  width: 100px;
   position: relative;
   cursor: pointer;
   border-radius: 16px;
@@ -26,18 +26,30 @@
 
 
 #menuItemsLe{
-  margin-top: 100px;
-  position: absolute;
-  top: 20vh;
-  left: 55vw;
-  font-family: Arial;
-  font-weight: bold;
-  img{
-    height: 200px;
-    width: 300px;
-    
-  }
+  @include menuLe(55vw, 20vh)
  
+}
+
+
+#menuItemsRi{
+  @include menuRi(20vw);
+
+}
+
+@media screen and (max-width: 1000px) {
+  #menuItemsLe{
+      @include menuLe(30vw, 115vh);
+      
+      
+  }
+
+  #menuItemsRi{
+    @include menuRi(30vw);
+  
+  }
+  
+  
+  
 }
 
 .buttonBuy{
@@ -47,36 +59,23 @@
 
 .viewCartClass{
   @include button();
-  background-color: #073042;
+  background-color: #0F52BA;
   width: 100px;
+  &:hover{
+    color: black;
+  }
 }
 
 .viewCartClass:hover{
-  background-color: #073042;
+  background-color: #0f6aba;
   
 }
-
-
-#menuItemsRi{
-  position: absolute;
-  left: 20vw;
-  font-weight: bold;
-  font-family: Arial;
-  margin-top: 100px;
-  width: 300px;
-  img{
-    height: 200px;
-    width: 300px;
-  }
-
-}
-
 
 #cart{
   position: relative;
   top: 60px;
   left: 71vw;
-  
+  z-index: 1;
   height: 70px;
   width: 90px;
   cursor: pointer;
@@ -150,35 +149,23 @@ body{
 }
   
 #nav{
-    @include nav;
-    @media (max-width:500px) {
-      #menubutton{
-        font-size: 5vw;
-        left: 38vw;
-      }
-
-      
-
-      #homebutton{
-        left: -15vw;
-        font-size: 5vw;
-      }
-
-      #aboutbutton{
-        display: none
-      }
-
-      button{
-        &:hover{
-          border: none
-        }
-      }
-      
-    }
+    @include nav(57vw, 2.5vw);
+  
     
 } 
 
+@media screen and (max-width:1000px) {
+  #nav{
+      @include nav(3vw,0vw);
+      #menubutton{
+        margin-left: 25vw
+      }
 
+      #aboutbutton{
+        margin-left: 25vw
+      }
+  }
+}
 
 #comb{
   @include combos(6vh,12vw);
@@ -197,35 +184,14 @@ body{
 
 
 #home{
-  @include home;
-  @media (max-width:$mobile){
-    width: 100vw;
-    img{
-      top: -5vh;
-      left: -0vw;
-      width: 90vw;
-    }
-    p{
-      display: none;
-      
-      
-    }
-   #tryonebutton{
-      position: relative;
-       top: 50vh;
-       width: 50vw;
-       left: -40vw;
-       font-size: 4vw;
-    }
+  @include home(0vh);
+  button{
+    
   }
-  @media (min-width: $mediumpc){
-    img{
-      position: relative;
-      top: -13vh;
-      height: 45vh;
-    }
-  }
+  
 }
+
+
 #comeleli{
   border: 1px solid gray;
 }
@@ -235,7 +201,7 @@ body{
   top: 30vh;
   font-family: Arial;
   font-style: italic;
-  font-size: 2vw;
+  font-size: 26px;
   text-align: center;
   font-weight: bolder;
 }
@@ -247,26 +213,18 @@ body{
 
 
 
-@media  screen and (max-width:600px) {
+@media  screen and (max-width:1000px) {
    
 #nav{
      padding-right: 50px;
    }
 
-   
-  #home{
-    padding-left: 41px;
-    padding-right: 49px;
-    height: 75vh;
+  #header{
     
-    img{
-      top: -15vh;
-    }
-
-    button{
-      position: relative;
-      margin-bottom: 100px;
-    }
+  }
+  
+  #home{
+   @include home(30vh)
   }
   #try{
     font-size:40px;

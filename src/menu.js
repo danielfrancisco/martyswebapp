@@ -5,7 +5,7 @@ import { useState,useEffect } from "react";
 import axios from "axios"
 import CartIcon from "./cartIcon";
 
-let data = axios.get("http://localhost:3000/menu")
+let data = axios.get("https://martysapi.onrender.com/menu")
 
 function Menu(){
   const[product,sproduct] = useState([])
@@ -14,14 +14,15 @@ function Menu(){
   const[view]  = useState("none")
 
   useEffect(()=>{
-    let Cartdata = axios.get("http://localhost:3000/cart")
+    let Cartdata = axios.get("https://martysapi.onrender.com/cart")
     Cartdata.then(v=>{
       scoun(v.data.coun)
       for(let i in v.data.items){
         for(let j in product){
+          
           if(v.data.items[i].name===product[j].name){
             document.getElementById("b"+j).style.display="none"
-            document.getElementById(+j).style.display="inline"
+            document.getElementById(j).style.display="inline"
           }
         }
       }
@@ -64,7 +65,7 @@ function Menu(){
                     }
                     
                     scoun(String(parseInt(coun)+1))
-                    axios.post("http://localhost:3000/menu",{
+                    axios.post("https://martysapi.onrender.com/menu",{
                         data
                     })
                   }
@@ -99,7 +100,7 @@ function Menu(){
                     }
                     
                     scoun(String(parseInt(coun)+1))
-                    axios.post("http://localhost:3000/menu",{
+                    axios.post("https://martysapi.onrender.com/menu",{
                         data
                     })
                     

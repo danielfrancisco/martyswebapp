@@ -1,32 +1,39 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import Nav from "./nav"
+import emptycartImage from "./Images/emptycartImage.png"
 import "./Styles/cart.scss";
 import axios from "axios"
 import CartIcon from "./cartIcon";
 import uuid from 'react-uuid';
 
-let data = axios.get("http://localhost:3000/cart")
+let data = axios.get("https://martysapi.onrender.com/cart")
 
 export default function Cart(){
     const[items,sitems] = useState([])
     const[coun,scoun]=useState([])
     const[empty,sempty]=useState("")
     const[amountItems,samountItems]=useState("")
+     
+    const emptyCart = useRef()
 
     useEffect(()=>{
+        
         data.then(v=>{
-        if(amountItems<1){
-            sempty("https://cdn.dribbble.com/users/844846/screenshots/2981974/empty_cart_800x600_dribbble.png")
+            
+         if(items.length<1){
+            sempty(emptycartImage)
+            emptyCart.current.style.display="block"
            }
            else{
-            sempty("")
+            
+            emptyCart.current.style.display="none"
            }
        })
        
     },[items,amountItems])
 
     useEffect(()=>{
-        data = axios.get("http://localhost:3000/cart")
+        data = axios.get("https://martysapi.onrender.com/cart")
         data.then(data=>{
             samountItems(data.data.coun)
         })
@@ -47,7 +54,7 @@ export default function Cart(){
 
     useEffect(()=>{
     if(items.length<1 && coun.length>0){
-        data = axios.get("http://localhost:3000/cart")
+        data = axios.get("https://martysapi.onrender.com/cart")
         
     }
    },[items,coun])
@@ -89,7 +96,7 @@ export default function Cart(){
             return amountItems=amountItems+1
         })
 
-        axios.post("http://localhost:3000/cart",{
+        axios.post("https://martysapi.onrender.com/cart",{
             amountTem
         })
     }
@@ -120,7 +127,7 @@ export default function Cart(){
             return amountItems=amountItems-1
         })
 
-        axios.post("http://localhost:3000/cart",{
+        axios.post("https://martysapi.onrender.com/cart",{
             amountTem
         })
         }
@@ -130,7 +137,7 @@ export default function Cart(){
         <>
             <Nav/>
             <CartIcon coun={amountItems}/>
-           <img id="emptyCart"alt="" src={empty}/>
+           <img id="emptyCart"alt="" src={empty} ref={emptyCart}/>
            <div id="cartBag">
              
               {items.map((item,itemIndex)=>{
@@ -147,7 +154,7 @@ export default function Cart(){
                     }}>+</button>
                     <button id="remove" onClick={()=>{
                         sitems([])
-                        axios.post("http://localhost:3000/cart",{
+                        axios.post("https://martysapi.onrender.com/cart",{
                             item
                         })
                     }}>remove</button>

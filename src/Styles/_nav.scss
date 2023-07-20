@@ -1,12 +1,13 @@
 
-@mixin nav{
-    height: 4vh;
+@mixin nav($left,$margin-right){
+    height: 4.5vh;
     list-style-type: none;
     font-family: Arial;
     position: relative;
     top: 7vh;
     background: rgb(176, 23, 31);
     color: white;
+    z-index: 2;
     padding-top: 1.5vh;
     width: 100%;
     button{
@@ -16,19 +17,21 @@
         font-weight: bold;
         font-family: Arial;
         position: relative;
-        left: 57vw;
+        left: $left;
         cursor: pointer;
         padding-top: 10px;
         border: none;
         background: rgb(176, 23, 31);
         padding: 0vw;
         color: white;
-        margin-right: 2.5vw;
+        margin-right: $margin-right;
         &:hover{
             color: black;
             padding-bottom: 0.9vh;
             }
     }
 }
+
+
 
 

@@ -4,15 +4,15 @@ import "./Styles/styles.scss";
 import axios from "axios"
 import CartIcon from "./cartIcon";
 
-let headerReq = axios.get("http://localhost:3000/")
-let cart = axios.get("http://localhost:3000/cart")
+let headerReq = axios.get("https://martysapi.onrender.com/")
+let cart = axios.get("https://martysapi.onrender.com/cart")
 
 function Home (){
   const[header,shedaer]=useState("")
   const[coun,scoun]=useState("")
   
   useEffect(()=>{
-   cart = axios.get("http://localhost:3000/cart")
+   cart = axios.get("https://martysapi.onrender.com/cart")
    
     cart.then(data=>{
      scoun(data.data.coun)
@@ -33,7 +33,7 @@ function Home (){
        
         <div id="home">
           <ul id="hero">
-          <p>{header}</p>
+          <p id="header">{header}</p>
           
           <button onClick={
             ()=>{
