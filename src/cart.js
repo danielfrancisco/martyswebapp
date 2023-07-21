@@ -1,6 +1,6 @@
 import { useEffect, useState, useRef } from "react";
 import Nav from "./nav"
-import emptycartImage from "./Images/emptycartImage.png"
+import emptycar from "./Images/emptycar.png"
 import "./Styles/cart.scss";
 import axios from "axios"
 import CartIcon from "./cartIcon";
@@ -21,7 +21,7 @@ export default function Cart(){
         data.then(v=>{
             
             if(items.length<1 && promiseFullfiled===true){
-            sempty(emptycartImage)
+            sempty(emptycar)
             emptyCart.current.style.display="block"
            }
            else{

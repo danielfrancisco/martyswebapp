@@ -1,4 +1,3 @@
-
 @mixin home($buttonTop) {
     
   position: relative;
@@ -7,32 +6,36 @@
   background: black;
   font-weight: bold;
   height: 60vh;
-  width: 100%;
+  width: 110.8%;
   overflow-y: hidden;
   overflow-x: hidden;
   background-color: black;
   z-index: 2;
+   
+  
+
   #hero{
       position: relative;
       left: 50vw;
       top: 14vh;
       font-size: 30px;
       color: white;
-    
+      
   }
   button{
       position: relative;
       top: $buttonTop;
       font-size: 1vw;
       color: white;
+      
       background-color: #0F52BA;
       border: none;
       border-radius: 5px;
       font-size: 18px;
       font-weight: bold;
       cursor: pointer;
-      height: 40px;
-      width: 90px;
+      height: 50px;
+      width: 100px;
       &:hover{
         background-color: #0f6aba;
         color: black;
@@ -40,13 +43,11 @@
   }
   img{
       position: relative;
-      top: -20vh;
-      height: 55vh;
-      left: 9vw;
-      
-  }
+      top: -16vh;
+      height: 50vh;
+      left: 8vw;
+    }
 
   
 }
-
 
