@@ -1,8 +1,8 @@
 {
   "files": {
-    "main.css": "/martyswebapp/static/css/main.775e7304.chunk.css",
-    "main.js": "/martyswebapp/static/js/main.55fab73b.chunk.js",
-    "main.js.map": "/martyswebapp/static/js/main.55fab73b.chunk.js.map",
+    "main.css": "/martyswebapp/static/css/main.e5e00888.chunk.css",
+    "main.js": "/martyswebapp/static/js/main.b0c5f34e.chunk.js",
+    "main.js.map": "/martyswebapp/static/js/main.b0c5f34e.chunk.js.map",
     "runtime-main.js": "/martyswebapp/static/js/runtime-main.16b6a1b9.js",
     "runtime-main.js.map": "/martyswebapp/static/js/runtime-main.16b6a1b9.js.map",
     "static/js/2.185e3c4e.chunk.js": "/martyswebapp/static/js/2.185e3c4e.chunk.js",
@@ -10,14 +10,14 @@
     "static/js/3.326a0e7a.chunk.js": "/martyswebapp/static/js/3.326a0e7a.chunk.js",
     "static/js/3.326a0e7a.chunk.js.map": "/martyswebapp/static/js/3.326a0e7a.chunk.js.map",
     "index.html": "/martyswebapp/index.html",
-    "static/css/main.775e7304.chunk.css.map": "/martyswebapp/static/css/main.775e7304.chunk.css.map",
+    "static/css/main.e5e00888.chunk.css.map": "/martyswebapp/static/css/main.e5e00888.chunk.css.map",
     "static/js/2.185e3c4e.chunk.js.LICENSE.txt": "/martyswebapp/static/js/2.185e3c4e.chunk.js.LICENSE.txt",
     "static/media/emptycar.f157d8a2.png": "/martyswebapp/static/media/emptycar.f157d8a2.png"
   },
   "entrypoints": [
     "static/js/runtime-main.16b6a1b9.js",
     "static/js/2.185e3c4e.chunk.js",
-    "static/css/main.775e7304.chunk.css",
-    "static/js/main.55fab73b.chunk.js"
+    "static/css/main.e5e00888.chunk.css",
+    "static/js/main.b0c5f34e.chunk.js"
   ]
 }
