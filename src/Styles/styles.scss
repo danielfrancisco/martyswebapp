@@ -4,15 +4,19 @@
 @import "try";
 @import "menu";
 
+$buttonHeight: 46px;
+$buttonWidth: 120px;
 
-@mixin button{
+@mixin button($Height, $Width){
   display: inline;
   background: black;
   color:white;
+  display: table-cell;
   border: none;
   font-family: Arial;
-  height: 5.2vh;
-  width: 100px;
+  height: $Height;
+  font-size: 15px;
+  width: $Width;
   position: relative;
   cursor: pointer;
   border-radius: 16px;
@@ -33,7 +37,7 @@
 
 #menuItemsRi{
   @include menuRi(20vw);
-
+  
 }
 
 @media screen and (max-width: 1000px) {
@@ -53,14 +57,16 @@
 }
 
 .buttonBuy{
-  @include button()
+  @include button($buttonHeight,$buttonWidth);
+  
 }
 
 
 .viewCartClass{
-  @include button();
+  @include button($buttonHeight, $buttonWidth);
   background-color: #0F52BA;
-  width: 100px;
+  
+  
   &:hover{
     color: black;
   }
@@ -74,10 +80,10 @@
 #cart{
   position: relative;
   top: 60px;
-  left: 71vw;
+  left: 10vw;
   z-index: 1;
   height: 70px;
-  width: 90px;
+  width: 30px;
   cursor: pointer;
   img{
     height: 70px;
@@ -114,7 +120,7 @@
 
 #car{
   
-   font-size: 16px;
+   font-size: 17px;
    font-family: Roboto;
    margin-left: 80vw;
    position: relative;
@@ -127,7 +133,7 @@
     width: 56px;
   }
   p{
-    font-size: 15px;
+    font-size: 17px;
     background-color: orange;
     color: white;
     width: 1.5vw;
@@ -169,12 +175,31 @@ body{
   #home{
     #header{
       display: none;
+      
     }
 
     button{
-      left: -25vw
+      left: -25vw;
     }
   }
+
+  .buttonBuy{
+    
+    @include button(48px,120px);
+    font-size: 16px
+  }
+
+  
+.viewCartClass{
+  @include button($buttonHeight, $buttonWidth);
+  background-color: #0F52BA;
+  font-size: 16px;
+  height: 48px;
+   
+  &:hover{
+    color: black;
+  }
+}
 }
 
 #comb{
@@ -228,7 +253,7 @@ body{
 @media  screen and (max-width:1000px) {
    
 #nav{
-     padding-right: 50px;
+     
    }
 
   #header{

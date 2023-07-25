@@ -3,7 +3,7 @@ export default function Nav(){
   
     return(
         <>
-         <ul id = "nav" >
+         <div id = "nav" >
            <button id="homebutton"
            onClick={
             ()=>{
@@ -30,7 +30,7 @@ export default function Nav(){
           }
            >About us
            </button>
-         </ul>
+         </div>
         </>
     )
 }

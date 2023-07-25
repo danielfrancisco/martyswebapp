@@ -3,25 +3,25 @@ body{
 }
 
 #emptyCart{
-    position: relative;
+  position: relative;
     z-index: 0;
     display: block;
-  margin-left: auto;
-  margin-right: auto;
+    margin-left: auto;
+    margin-right: auto;
     top: 15vh;
     width: 400px;
     height: 366px;
     
   }
   
-  $topSmaller: 10vh; 
+  $topSmaller: 4vh; 
   $leftSmaller: -40vw; 
   $leftMobile: -60vw;
 
 @media screen and (max-width:1000px) {
 
    #nav{
-    width: 110%;
+    width: 100vw;
    }
     #cartBag{
       
@@ -47,30 +47,67 @@ body{
     }
  }
 
+
+
  @media screen and (max-width: 650px) {
+  
   #nav{
-    width: 162%;
+    width: 100vw;
   }
  
  
   #cartBag{
     
     p{
-     left: $leftMobile
+     left: $leftMobile;
+     
+    }
+    #removeOne{
+      left: $leftMobile;
+      
+    }
+
+    #addOne{
+      left: $leftMobile;
+      
+    }
+
+    #remove{
+      left: $leftMobile;
+      
+    }
+
+   }
+  
+}
+
+@media screen and (max-width: 500px) {
+  #nav{
+    width: 100vw;
+  }
+ 
+ #itemImg{
+ width: 200px;
+ }
+
+  #cartBag{
+  
+    p{
+      left: -81vw;
       
     }
     #removeOne{
-      left: $leftMobile
+      left: -81vw;
      
     }
 
     #addOne{
-      left: $leftMobile
+      left: -80vw;
      
     }
 
     #remove{
-      left: $leftMobile
+      left: -81vw;
      
     }
 
@@ -78,50 +115,79 @@ body{
   
 }
 
-@media screen and (max-width: 400px) {
+
+
+#itemsBag{
+   
+   height: 300px;
+}
+
+@media screen and (max-width: 435px) {
   #nav{
-    width: 162%;
+    width: 100vw;
   }
  
+ #itemImg{
+ width: 200px;
+ }
+
+ #itemsBag{
+  position: relative;
+  left: -40px;
+  width: 350px;
+  margin-top: 110px;
+ }
  
   #cartBag{
-    
+  
     p{
-      left: -65vw;
+      left: -95vw;
       
     }
     #removeOne{
-      left: -65vw;
-     
+      
+      left: -95vw;
     }
 
     #addOne{
-      left: -65vw;
-     
+      
+      left: -95vw;
     }
 
     #remove{
-      left: -65vw;
+      left: -95vw;
      
     }
 
    }
   
 }
+
+
+
 
 #cartBag{
+    z-index: 1;
     position: relative;
-    left: 15vw;
-    top: 10vh;
-    display: inline;
+    left: 14vw;
+    top: 20vh;
+    height: 47vh;
+    width: 80vw;
+    display: inline-block;
     white-space: nowrap;
-    background-color: #30b069;
     
-    div{
-      margin-top: 110px;
+ div{
+      
+      
+      overflow: hidden;
     }
+
+    body{
+      overflow: hidden;
+    }
+
     p{
-      display: inline;
+      display: inline-block;
       margin-left: 60px;
       font-family: Arial;
       font-size: 16px;
@@ -130,19 +196,22 @@ body{
       bottom: 10vh;
     }
     img{
-      display: inline;
+      display: inline-block;
       
       margin-left: 35px;
-      height: 100px;
       height: 200px;
+      width: 300px;
       
     }
     button{
       cursor: pointer;
       position: relative;
       bottom: 10vh;
+      display: inline-block;
     }
   }
+
+  
 
 
 #removeOne{
@@ -152,7 +221,6 @@ body{
     height: 25px;
     width: 25px;
     position: relative;
-    ;
     margin-left: 35px;
     border-radius: 3px;
     font-weight: bold;
@@ -169,6 +237,7 @@ body{
     margin-left: 20px;
     font-family: Arial;
     border: none;
+    
     font-weight: bold;
     border-radius: 3px;
   }

@@ -5,18 +5,27 @@
   font-family: Arial;
   background: black;
   font-weight: bold;
+  position: relative;
+  left: 0vw;
   height: 60vh;
-  width: 110.8%;
+  width: 100vw;
   overflow-y: hidden;
   overflow-x: hidden;
   background-color: black;
   z-index: 2;
-   
   
+  #hero{
+    width: 0vw;
+    z-index: 1;
+  }
+  #header{
+    width: 20vw;
+    z-index: 1;
+  }
 
   #hero{
       position: relative;
-      left: 50vw;
+      left: 40vw;
       top: 14vh;
       font-size: 30px;
       color: white;
@@ -25,20 +34,20 @@
   button{
       position: relative;
       top: $buttonTop;
-      font-size: 1vw;
       color: white;
-      
       background-color: #0F52BA;
       border: none;
+      z-index: 1;
       border-radius: 5px;
-      font-size: 18px;
+      font-size: 17px;
       font-weight: bold;
       cursor: pointer;
-      height: 50px;
-      width: 100px;
+      height: 48px;
+      width: 120px;
       &:hover{
-        background-color: #0f6aba;
-        color: black;
+        background-color: black;
+        color: #0F52BA;
+        border: solid thin #0F52BA;
       }
   }
   img{
@@ -46,6 +55,7 @@
       top: -16vh;
       height: 50vh;
       left: 8vw;
+      z-index: 0;
     }
 
   

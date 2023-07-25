@@ -17,7 +17,7 @@ export default function Cart(){
    const emptyCart = useRef()
 
     useEffect(()=>{
-        console.log(promiseFullfiled)
+        
         data.then(v=>{
             
             if(items.length<1 && promiseFullfiled===true){
@@ -131,7 +131,9 @@ export default function Cart(){
         })
         }
     }
+    
      
+    
    return(
         <>
             <Nav/>
@@ -141,8 +143,8 @@ export default function Cart(){
              
               {items.map((item,itemIndex)=>{
                 
-                return <div key={uuid()}>
-                    <img alt="img" src={item.img}/>
+                return <div id="itemsBag" key={uuid()}>
+                    <img alt="img" id="itemImg" src={item.img}/>
                     <p>{item.name}</p>
                     <p>{item.amount}</p>
                     <button id="removeOne" onClick={()=>{
