@@ -5,7 +5,7 @@ import { useState,useEffect } from "react";
 import axios from "axios"
 import CartIcon from "./cartIcon";
 
-let data = axios.get("https://martysapi.onrender.com/menu")
+let data = axios.get("https://calm-lime-parrot-tam.cyclic.app/menu")
 
 function Menu(){
   const[product,sproduct] = useState([])
@@ -14,7 +14,7 @@ function Menu(){
   const[view]  = useState("none")
 
   useEffect(()=>{
-    let Cartdata = axios.get("https://martysapi.onrender.com/cart")
+    let Cartdata = axios.get("https://calm-lime-parrot-tam.cyclic.app/cart")
     Cartdata.then(v=>{
       scoun(v.data.coun)
       for(let i in v.data.items){
@@ -65,7 +65,7 @@ function Menu(){
                     }
                     
                     scoun(String(parseInt(coun)+1))
-                    axios.post("https://martysapi.onrender.com/menu",{
+                    axios.post("https://calm-lime-parrot-tam.cyclic.app/menu",{
                         data
                     })
                   }
@@ -100,7 +100,7 @@ function Menu(){
                     }
                     
                     scoun(String(parseInt(coun)+1))
-                    axios.post("https://martysapi.onrender.com/menu",{
+                    axios.post("https://calm-lime-parrot-tam.cyclic.app/menu",{
                         data
                     })
                     

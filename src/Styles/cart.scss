@@ -42,6 +42,7 @@ body{
      #remove{
       left: $leftSmaller;
       top: $topSmaller;
+      
      }
 
     }
@@ -108,7 +109,7 @@ body{
 
     #remove{
       left: -81vw;
-     
+      
     }
 
    }
@@ -237,27 +238,15 @@ body{
     margin-left: 20px;
     font-family: Arial;
     border: none;
-    
     font-weight: bold;
     border-radius: 3px;
+    &:hover{
+      color: red;
+    }
   }
 
 
-  
-#addOne:hover{
-    color: #30b069;
-  }
-  
-  #removeOne:hover{
-    color: red;
-  }
-  
-  #remove:hover{
-     color: red;
-  }
-
-
-  #addOne{
+#addOne{
     background-color: black;
     color: white;
     border: none;

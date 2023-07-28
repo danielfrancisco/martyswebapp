@@ -4,15 +4,15 @@ import "./Styles/styles.scss";
 import axios from "axios"
 import CartIcon from "./cartIcon";
 
-let headerReq = axios.get("https://martysapi.onrender.com/")
-let cart = axios.get("https://martysapi.onrender.com/cart")
+let headerReq = axios.get("https://calm-lime-parrot-tam.cyclic.app/")
+let cart = axios.get("https://calm-lime-parrot-tam.cyclic.app/cart")
 
 function Home (){
   const[header,shedaer]=useState("")
   const[coun,scoun]=useState("")
   
   useEffect(()=>{
-   cart = axios.get("https://martysapi.onrender.com/cart")
+   cart = axios.get("https://calm-lime-parrot-tam.cyclic.app/cart")
    
     cart.then(data=>{
      scoun(data.data.coun)

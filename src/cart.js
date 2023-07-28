@@ -6,7 +6,7 @@ import axios from "axios"
 import CartIcon from "./cartIcon";
 import uuid from 'react-uuid';
 
-let data = axios.get("https://martysapi.onrender.com/cart")
+let data = axios.get("https://calm-lime-parrot-tam.cyclic.app/cart")
 
 export default function Cart(){
     const[items,sitems] = useState([])
@@ -33,7 +33,7 @@ export default function Cart(){
     },[items,promiseFullfiled])
 
     useEffect(()=>{
-        data = axios.get("https://martysapi.onrender.com/cart")
+        data = axios.get("https://calm-lime-parrot-tam.cyclic.app/cart")
         data.then(data=>{
             samountItems(data.data.coun)
         })
@@ -53,7 +53,7 @@ export default function Cart(){
 
     useEffect(()=>{
     if(items.length<1 && coun.length>0){
-        data = axios.get("https://martysapi.onrender.com/cart")
+        data = axios.get("https://calm-lime-parrot-tam.cyclic.app/cart")
         
     }
    },[items,coun])
@@ -95,7 +95,7 @@ export default function Cart(){
             return amountItems=amountItems+1
         })
 
-        axios.post("https://martysapi.onrender.com/cart",{
+        axios.post("https://calm-lime-parrot-tam.cyclic.app/cart",{
             amountTem
         })
     }
@@ -126,7 +126,7 @@ export default function Cart(){
             return amountItems=amountItems-1
         })
 
-        axios.post("https://martysapi.onrender.com/cart",{
+        axios.post("https://calm-lime-parrot-tam.cyclic.app/cart",{
             amountTem
         })
         }
@@ -154,6 +154,7 @@ export default function Cart(){
                        incre(item)
                     }}>+</button>
                     <button id="remove" onClick={()=>{
+                        
                         sitems([])
                         
                         if(items.length>1){
@@ -163,7 +164,7 @@ export default function Cart(){
                         }else{
                             spromiseFullfiled(true)
                         }
-                        axios.post("https://martysapi.onrender.com/cart",{
+                        axios.post("https://calm-lime-parrot-tam.cyclic.app/cart",{
                             item
                         })
                     }}>remove</button>

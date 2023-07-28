@@ -4,7 +4,7 @@ import Nav from "./nav"
 import axios from "axios"
 import { useRef } from "react"
 
-let data = axios.get("https://martysapi.onrender.com/about")
+let data = axios.get("https://calm-lime-parrot-tam.cyclic.app/about")
 export default function About(){
   const[paragraph,sparagraph]=useState("")
   const aboutUs = useRef()

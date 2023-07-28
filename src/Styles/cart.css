@@ -1,20 +1,124 @@
-#emptyCart {
-  height: 90vh;
-  position: relative;
-  left: 14vw;
+body {
+  border: none;
 }
 
-#cartBag {
+#emptyCart {
   position: relative;
-  left: 15vw;
-  top: 5vh;
-  display: inline;
+  z-index: 0;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  top: 15vh;
+  width: 400px;
+  height: 366px;
+}
+
+@media screen and (max-width: 1000px) {
+  #nav {
+    width: 100vw;
+  }
+  #cartBag p {
+    left: -40vw;
+    top: 4vh;
+  }
+  #cartBag #removeOne {
+    left: -40vw;
+    top: 4vh;
+  }
+  #cartBag #addOne {
+    left: -40vw;
+    top: 4vh;
+  }
+  #cartBag #remove {
+    left: -40vw;
+    top: 4vh;
+  }
+}
+@media screen and (max-width: 650px) {
+  #nav {
+    width: 100vw;
+  }
+  #cartBag p {
+    left: -60vw;
+  }
+  #cartBag #removeOne {
+    left: -60vw;
+  }
+  #cartBag #addOne {
+    left: -60vw;
+  }
+  #cartBag #remove {
+    left: -60vw;
+  }
+}
+@media screen and (max-width: 500px) {
+  #nav {
+    width: 100vw;
+  }
+  #itemImg {
+    width: 200px;
+  }
+  #cartBag p {
+    left: -81vw;
+  }
+  #cartBag #removeOne {
+    left: -81vw;
+  }
+  #cartBag #addOne {
+    left: -80vw;
+  }
+  #cartBag #remove {
+    left: -81vw;
+  }
+}
+#itemsBag {
+  height: 300px;
+}
+
+@media screen and (max-width: 435px) {
+  #nav {
+    width: 100vw;
+  }
+  #itemImg {
+    width: 200px;
+  }
+  #itemsBag {
+    position: relative;
+    left: -40px;
+    width: 350px;
+    margin-top: 110px;
+  }
+  #cartBag p {
+    left: -95vw;
+  }
+  #cartBag #removeOne {
+    left: -95vw;
+  }
+  #cartBag #addOne {
+    left: -95vw;
+  }
+  #cartBag #remove {
+    left: -95vw;
+  }
+}
+#cartBag {
+  z-index: 1;
+  position: relative;
+  left: 14vw;
+  top: 20vh;
+  height: 47vh;
+  width: 80vw;
+  display: inline-block;
+  white-space: nowrap;
 }
 #cartBag div {
-  margin-top: 70px;
+  overflow: hidden;
+}
+#cartBag body {
+  overflow: hidden;
 }
 #cartBag p {
-  display: inline;
+  display: inline-block;
   margin-left: 60px;
   font-family: Arial;
   font-size: 16px;
@@ -23,15 +127,16 @@
   bottom: 10vh;
 }
 #cartBag img {
-  display: inline;
+  display: inline-block;
   margin-left: 35px;
-  height: 100px;
   height: 200px;
+  width: 300px;
 }
 #cartBag button {
   cursor: pointer;
   position: relative;
   bottom: 10vh;
+  display: inline-block;
 }
 
 #removeOne {
@@ -40,6 +145,7 @@
   border: none;
   height: 25px;
   width: 25px;
+  position: relative;
   margin-left: 35px;
   border-radius: 3px;
   font-weight: bold;
@@ -58,15 +164,6 @@
   font-weight: bold;
   border-radius: 3px;
 }
-
-#addOne:hover {
-  color: #30b069;
-}
-
-#removeOne:hover {
-  color: red;
-}
-
 #remove:hover {
   color: red;
 }
