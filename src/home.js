@@ -4,24 +4,21 @@ import "./Styles/styles.scss";
 import axios from "axios"
 import CartIcon from "./cartIcon";
 
-let headerReq = axios.get("https://calm-lime-parrot-tam.cyclic.app/")
-let cart = axios.get("https://calm-lime-parrot-tam.cyclic.app/cart")
-
 function Home (){
   const[header,shedaer]=useState("")
   const[coun,scoun]=useState("")
   
   useEffect(()=>{
-   cart = axios.get("https://calm-lime-parrot-tam.cyclic.app/cart")
-   
-    cart.then(data=>{
+   axios.get("https://calm-lime-parrot-tam.cyclic.app/cart")
+   .then(data=>{
      scoun(data.data.coun)
      })
    
   },[])
   
   useEffect(()=>{
-    headerReq.then(data=>{
+    axios.get("https://calm-lime-parrot-tam.cyclic.app/")
+    .then(data=>{
       shedaer(data.data[0].header)
     })
   },[])

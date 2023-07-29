@@ -5,8 +5,6 @@ import { useState,useEffect } from "react";
 import axios from "axios"
 import CartIcon from "./cartIcon";
 
-let data = axios.get("https://calm-lime-parrot-tam.cyclic.app/menu")
-
 function Menu(){
   const[product,sproduct] = useState([])
   const[coun,scoun]  = useState(0)
@@ -30,8 +28,7 @@ function Menu(){
   },[product])
 
   useEffect(()=>{   
-    data.then(data=>{
-      
+    axios.get("https://calm-lime-parrot-tam.cyclic.app/menu").then(data=>{
       for(let i in data.data){
         sproduct(product=>[...product,data.data[i]])
       }
