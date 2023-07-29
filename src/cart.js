@@ -6,7 +6,7 @@ import axios from "axios"
 import CartIcon from "./cartIcon";
 import uuid from 'react-uuid';
 
-let data = axios.get("https://calm-lime-parrot-tam.cyclic.app/cart")
+
 
 export default function Cart(){
     const[items,sitems] = useState([])
@@ -17,9 +17,8 @@ export default function Cart(){
    const emptyCart = useRef()
 
     useEffect(()=>{
-        
-        data.then(v=>{
-            
+        axios.get("https://calm-lime-parrot-tam.cyclic.app/cart")
+        .then(v=>{
             if(items.length<1 && promiseFullfiled===true){
             sempty(emptycar)
             emptyCart.current.style.display="block"
@@ -33,8 +32,8 @@ export default function Cart(){
     },[items,promiseFullfiled])
 
     useEffect(()=>{
-        data = axios.get("https://calm-lime-parrot-tam.cyclic.app/cart")
-        data.then(data=>{
+        axios.get("https://calm-lime-parrot-tam.cyclic.app/cart")
+        .then(data=>{
             samountItems(data.data.coun)
         })
 
@@ -42,7 +41,8 @@ export default function Cart(){
 
     useEffect(()=>{
         spromiseFullfiled(true)
-        data.then(data=>{
+        axios.get("https://calm-lime-parrot-tam.cyclic.app/cart")
+        .then(data=>{
         samountItems(data.data.coun)
         for(let i in data.data.items){
             sitems(items=>[...items,data.data.items[i]])
@@ -53,14 +53,15 @@ export default function Cart(){
 
     useEffect(()=>{
     if(items.length<1 && coun.length>0){
-        data = axios.get("https://calm-lime-parrot-tam.cyclic.app/cart")
+        
         
     }
    },[items,coun])
 
     useEffect(()=>{
         if(items.length<1 && coun.length>0){
-            data.then(data=>{
+            axios.get("https://calm-lime-parrot-tam.cyclic.app/cart")
+            .then(data=>{
                 for(let i in data.data.items){
                     sitems(items=>[...items,data.data.items[i]])
                    scoun(coun=>[...coun,0])
