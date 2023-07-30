@@ -5,8 +5,6 @@ import { useState,useEffect } from "react";
 import axios from "axios"
 import CartIcon from "./cartIcon";
 
-let data = axios.get("https://calm-lime-parrot-tam.cyclic.app/menu")
-
 function Menu(){
   const[product,sproduct] = useState([])
   const[coun,scoun]  = useState(0)
@@ -14,8 +12,8 @@ function Menu(){
   const[view]  = useState("none")
 
   useEffect(()=>{
-    let Cartdata = axios.get("https://calm-lime-parrot-tam.cyclic.app/cart")
-    Cartdata.then(v=>{
+    axios.get("https://fantastic-bee-lingerie.cyclic.app/cart")
+    .then(v=>{
       scoun(v.data.coun)
       for(let i in v.data.items){
         for(let j in product){
@@ -30,7 +28,8 @@ function Menu(){
   },[product])
 
   useEffect(()=>{   
-    data.then(data=>{
+    axios.get("https://fantastic-bee-lingerie.cyclic.app/menu")
+    .then(data=>{
       
       for(let i in data.data){
         sproduct(product=>[...product,data.data[i]])
@@ -65,7 +64,8 @@ function Menu(){
                     }
                     
                     scoun(String(parseInt(coun)+1))
-                    axios.post("https://calm-lime-parrot-tam.cyclic.app/menu",{
+                    
+                    axios.post("https://fantastic-bee-lingerie.cyclic.app/menu",{
                         data
                     })
                   }
@@ -100,7 +100,7 @@ function Menu(){
                     }
                     
                     scoun(String(parseInt(coun)+1))
-                    axios.post("https://calm-lime-parrot-tam.cyclic.app/menu",{
+                    axios.post("https://fantastic-bee-lingerie.cyclic.app/menu",{
                         data
                     })
                     

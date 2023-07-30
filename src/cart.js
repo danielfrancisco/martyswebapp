@@ -6,8 +6,6 @@ import axios from "axios"
 import CartIcon from "./cartIcon";
 import uuid from 'react-uuid';
 
-let data = axios.get("https://calm-lime-parrot-tam.cyclic.app/cart")
-
 export default function Cart(){
     const[items,sitems] = useState([])
     const[coun,scoun]=useState([])
@@ -18,9 +16,7 @@ export default function Cart(){
 
     useEffect(()=>{
         
-        data.then(v=>{
-            
-            if(items.length<1 && promiseFullfiled===true){
+        if(items.length<1 && promiseFullfiled===true){
             sempty(emptycar)
             emptyCart.current.style.display="block"
            }
@@ -28,13 +24,13 @@ export default function Cart(){
             
             emptyCart.current.style.display="none"
            }
-       })
+       
        
     },[items,promiseFullfiled])
 
     useEffect(()=>{
-        data = axios.get("https://calm-lime-parrot-tam.cyclic.app/cart")
-        data.then(data=>{
+        axios.get("https://fantastic-bee-lingerie.cyclic.app/cart")
+        .then(data=>{
             samountItems(data.data.coun)
         })
 
@@ -42,7 +38,8 @@ export default function Cart(){
 
     useEffect(()=>{
         spromiseFullfiled(true)
-        data.then(data=>{
+        axios.get("https://fantastic-bee-lingerie.cyclic.app/cart")
+        .then(data=>{
         samountItems(data.data.coun)
         for(let i in data.data.items){
             sitems(items=>[...items,data.data.items[i]])
@@ -53,14 +50,15 @@ export default function Cart(){
 
     useEffect(()=>{
     if(items.length<1 && coun.length>0){
-        data = axios.get("https://calm-lime-parrot-tam.cyclic.app/cart")
+        
         
     }
    },[items,coun])
 
     useEffect(()=>{
         if(items.length<1 && coun.length>0){
-            data.then(data=>{
+            axios.get("https://fantastic-bee-lingerie.cyclic.app/cart")
+            .then(data=>{
                 for(let i in data.data.items){
                     sitems(items=>[...items,data.data.items[i]])
                    scoun(coun=>[...coun,0])
@@ -94,8 +92,8 @@ export default function Cart(){
         samountItems(amountItems=>{
             return amountItems=amountItems+1
         })
-
-        axios.post("https://calm-lime-parrot-tam.cyclic.app/cart",{
+        
+        axios.post("https://fantastic-bee-lingerie.cyclic.app/cart",{
             amountTem
         })
     }
@@ -125,8 +123,8 @@ export default function Cart(){
         samountItems(amountItems=>{
             return amountItems=amountItems-1
         })
-
-        axios.post("https://calm-lime-parrot-tam.cyclic.app/cart",{
+        
+        axios.post("https://fantastic-bee-lingerie.cyclic.app/cart",{
             amountTem
         })
         }
@@ -164,7 +162,8 @@ export default function Cart(){
                         }else{
                             spromiseFullfiled(true)
                         }
-                        axios.post("https://calm-lime-parrot-tam.cyclic.app/cart",{
+                        
+                        axios.post("https://fantastic-bee-lingerie.cyclic.app/cart",{
                             item
                         })
                     }}>remove</button>
