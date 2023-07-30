@@ -1,33 +1,27 @@
 import { useEffect, useState, useRef } from "react";
 import Nav from "./nav"
-import emptycar from "./Images/emptycar.png"
+import emptycart from "./Images/emptycart.png"
 import "./Styles/cart.scss";
 import axios from "axios"
 import CartIcon from "./cartIcon";
 import uuid from 'react-uuid';
 
-
-
 export default function Cart(){
     const[items,sitems] = useState([])
     const[coun,scoun]=useState([])
-    const[empty,sempty]=useState("")
     const[amountItems,samountItems]=useState("")
     const[promiseFullfiled,spromiseFullfiled]=useState(false) 
-   const emptyCart = useRef()
+    const emptyCart = useRef()
 
     useEffect(()=>{
-        axios.get("https://calm-lime-parrot-tam.cyclic.app/cart")
-        .then(v=>{
-            if(items.length<1 && promiseFullfiled===true){
-            sempty(emptycar)
+        
+        if(items.length<1 && typeof promiseFullfiled.data?.items.length==="number"){
             emptyCart.current.style.display="block"
-           }
-           else{
-            
-            emptyCart.current.style.display="none"
-           }
-       })
+        }
+
+        else{
+         emptyCart.current.style.display="none"
+        }
        
     },[items,promiseFullfiled])
 
@@ -40,15 +34,19 @@ export default function Cart(){
     },[items])
 
     useEffect(()=>{
-        spromiseFullfiled(true)
-        axios.get("https://calm-lime-parrot-tam.cyclic.app/cart")
-        .then(data=>{
-        samountItems(data.data.coun)
-        for(let i in data.data.items){
-            sitems(items=>[...items,data.data.items[i]])
-           scoun(coun=>[...coun,1])
-        }
+     
+      
+       axios.get("https://calm-lime-parrot-tam.cyclic.app/cart")
+            .then(data=>{
+            spromiseFullfiled(data)
+            samountItems(data.data.coun)
+            for(let i in data.data.items){
+                sitems(items=>[...items,data.data.items[i]])
+            scoun(coun=>[...coun,1])
+            }
       })
+        
+        
     },[])
 
     useEffect(()=>{
@@ -62,6 +60,7 @@ export default function Cart(){
         if(items.length<1 && coun.length>0){
             axios.get("https://calm-lime-parrot-tam.cyclic.app/cart")
             .then(data=>{
+                spromiseFullfiled(data)
                 for(let i in data.data.items){
                     sitems(items=>[...items,data.data.items[i]])
                    scoun(coun=>[...coun,0])
@@ -139,7 +138,7 @@ export default function Cart(){
         <>
             <Nav/>
             <CartIcon coun={amountItems}/>
-           <img id="emptyCart" alt="  " src={empty} ref={emptyCart}/>
+           <img id="emptyCart" alt="  " src={emptycart} ref={emptyCart}/>
            <div id="cartBag">
              
               {items.map((item,itemIndex)=>{
@@ -157,14 +156,8 @@ export default function Cart(){
                     <button id="remove" onClick={()=>{
                         
                         sitems([])
+                        spromiseFullfiled(false)
                         
-                        if(items.length>1){
-                            
-                            spromiseFullfiled(false)
-                            
-                        }else{
-                            spromiseFullfiled(true)
-                        }
                         axios.post("https://calm-lime-parrot-tam.cyclic.app/cart",{
                             item
                         })
