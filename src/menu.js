@@ -12,7 +12,7 @@ function Menu(){
   const[view]  = useState("none")
 
   useEffect(()=>{
-    let Cartdata = axios.get("https://calm-lime-parrot-tam.cyclic.app/cart")
+    let Cartdata = axios.get("https://long-erin-drill-coat.cyclic.app/cart")
     Cartdata.then(v=>{
       scoun(v.data.coun)
       for(let i in v.data.items){
@@ -28,7 +28,7 @@ function Menu(){
   },[product])
 
   useEffect(()=>{   
-    axios.get("https://calm-lime-parrot-tam.cyclic.app/menu").then(data=>{
+    axios.get("https://long-erin-drill-coat.cyclic.app//menu").then(data=>{
       for(let i in data.data){
         sproduct(product=>[...product,data.data[i]])
       }
@@ -62,7 +62,7 @@ function Menu(){
                     }
                     
                     scoun(String(parseInt(coun)+1))
-                    axios.post("https://calm-lime-parrot-tam.cyclic.app/menu",{
+                    axios.post("https://long-erin-drill-coat.cyclic.app/menu",{
                         data
                     })
                   }
@@ -97,7 +97,7 @@ function Menu(){
                     }
                     
                     scoun(String(parseInt(coun)+1))
-                    axios.post("https://calm-lime-parrot-tam.cyclic.app/menu",{
+                    axios.post("https://long-erin-drill-coat.cyclic.app/menu",{
                         data
                     })
                     

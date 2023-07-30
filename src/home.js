@@ -9,7 +9,7 @@ function Home (){
   const[coun,scoun]=useState("")
   
   useEffect(()=>{
-   axios.get("https://calm-lime-parrot-tam.cyclic.app/cart")
+   axios.get("https://long-erin-drill-coat.cyclic.app/cart")
    .then(data=>{
      scoun(data.data.coun)
      })
@@ -17,7 +17,7 @@ function Home (){
   },[])
   
   useEffect(()=>{
-    axios.get("https://calm-lime-parrot-tam.cyclic.app/")
+    axios.get("https://long-erin-drill-coat.cyclic.app/")
     .then(data=>{
       shedaer(data.data[0].header)
     })

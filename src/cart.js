@@ -26,7 +26,7 @@ export default function Cart(){
     },[items,promiseFullfiled])
 
     useEffect(()=>{
-        axios.get("https://calm-lime-parrot-tam.cyclic.app/cart")
+        axios.get("https://long-erin-drill-coat.cyclic.app/cart")
         .then(data=>{
             samountItems(data.data.coun)
         })
@@ -36,7 +36,7 @@ export default function Cart(){
     useEffect(()=>{
      
       
-       axios.get("https://calm-lime-parrot-tam.cyclic.app/cart")
+       axios.get("https://long-erin-drill-coat.cyclic.app/cart")
             .then(data=>{
             spromiseFullfiled(data)
             samountItems(data.data.coun)
@@ -51,7 +51,7 @@ export default function Cart(){
 
     useEffect(()=>{
         if(items.length<1 && coun.length>0){
-            axios.get("https://calm-lime-parrot-tam.cyclic.app/cart")
+            axios.get("https://long-erin-drill-coat.cyclic.app/cart")
             .then(data=>{
                 spromiseFullfiled(data)
                 for(let i in data.data.items){
@@ -88,7 +88,7 @@ export default function Cart(){
             return amountItems=amountItems+1
         })
 
-        axios.post("https://calm-lime-parrot-tam.cyclic.app/cart",{
+        axios.post("https://long-erin-drill-coat.cyclic.app/cart",{
             amountTem
         })
     }
@@ -119,7 +119,7 @@ export default function Cart(){
             return amountItems=amountItems-1
         })
 
-        axios.post("https://calm-lime-parrot-tam.cyclic.app/cart",{
+        axios.post("https://long-erin-drill-coat.cyclic.app/cart",{
             amountTem
         })
         }
@@ -151,7 +151,7 @@ export default function Cart(){
                         sitems([])
                         spromiseFullfiled(false)
                         
-                        axios.post("https://calm-lime-parrot-tam.cyclic.app/cart",{
+                        axios.post("https://long-erin-drill-coat.cyclic.app/cart",{
                             item
                         })
                     }}>remove</button>
