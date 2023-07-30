@@ -10,12 +10,12 @@ export default function Cart(){
     const[items,sitems] = useState([])
     const[coun,scoun]=useState([])
     const[amountItems,samountItems]=useState("")
-    const[promiseFullfiled,spromiseFullfiled]=useState(false) 
+    
     const emptyCart = useRef()
 
     useEffect(()=>{
         
-        if(items.length<1 && typeof promiseFullfiled.data?.items.length==="number"){
+        if(items.length<1){
             emptyCart.current.style.display="block"
         }
 
@@ -23,10 +23,10 @@ export default function Cart(){
          emptyCart.current.style.display="none"
         }
        
-    },[items,promiseFullfiled])
+    },[items])
 
     useEffect(()=>{
-        axios.get("https://long-erin-drill-coat.cyclic.app/cart")
+        axios.get("https://fantastic-bee-lingerie.cyclic.app/cart")
         .then(data=>{
             samountItems(data.data.coun)
         })
@@ -36,9 +36,9 @@ export default function Cart(){
     useEffect(()=>{
      
       
-       axios.get("https://long-erin-drill-coat.cyclic.app/cart")
+       axios.get("https://fantastic-bee-lingerie.cyclic.app/cart")
             .then(data=>{
-            spromiseFullfiled(data)
+            
             samountItems(data.data.coun)
             for(let i in data.data.items){
                 sitems(items=>[...items,data.data.items[i]])
@@ -51,9 +51,9 @@ export default function Cart(){
 
     useEffect(()=>{
         if(items.length<1 && coun.length>0){
-            axios.get("https://long-erin-drill-coat.cyclic.app/cart")
+            axios.get("https://fantastic-bee-lingerie.cyclic.app/cart")
             .then(data=>{
-                spromiseFullfiled(data)
+                
                 for(let i in data.data.items){
                     sitems(items=>[...items,data.data.items[i]])
                    scoun(coun=>[...coun,0])
@@ -88,7 +88,7 @@ export default function Cart(){
             return amountItems=amountItems+1
         })
 
-        axios.post("https://long-erin-drill-coat.cyclic.app/cart",{
+        axios.post("https://fantastic-bee-lingerie.cyclic.app/cart",{
             amountTem
         })
     }
@@ -119,7 +119,7 @@ export default function Cart(){
             return amountItems=amountItems-1
         })
 
-        axios.post("https://long-erin-drill-coat.cyclic.app/cart",{
+        axios.post("https://fantastic-bee-lingerie.cyclic.app/cart",{
             amountTem
         })
         }
@@ -149,9 +149,9 @@ export default function Cart(){
                     <button id="remove" onClick={()=>{
                         
                         sitems([])
-                        spromiseFullfiled(false)
                         
-                        axios.post("https://long-erin-drill-coat.cyclic.app/cart",{
+                        
+                        axios.post("https://fantastic-bee-lingerie.cyclic.app/cart",{
                             item
                         })
                     }}>remove</button>
