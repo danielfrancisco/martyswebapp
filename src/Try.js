@@ -12,7 +12,7 @@ export function Try (){
           ()=>{
             window.location.hash="/";
           }
-        }>Go back</button>
+        }>View Menu</button>
         </div>
         </>
         )

@@ -1,24 +1,31 @@
 
 @mixin try{
   position: relative;
-  top: 10vh;
+  top: 20vh;
   font-weight: bold;
   font-family: Arial;
-  left: 30vw;
-  font-size: 5vw;
+  text-align: center;
+  font-size: 55px;
+  text-transform: uppercase;
   button{
       position: relative;
       top: -3.4vh;
-      left: 13vw;
-      background: black;
-      font-family: Arial;
-      color: white;
-      border: none;
-      border-radius: 16px;
-      font-size: 1.5vw;
-      height: 4vw;
-      width: 8vw;
-      cursor: pointer;
       
+      background: white;
+      font-family: Arial;
+      color: black;
+      border: solid black thin;
+      font-weight: bold;
+      border-radius: 16px;
+      font-size: 16px;
+      height: 60px;
+      width: 135px;
+      
+     cursor: pointer;
+      &:hover{
+        background-color: black;
+        color: white;
+        
+      }
   }
 }

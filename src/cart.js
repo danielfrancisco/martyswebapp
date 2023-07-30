@@ -50,13 +50,6 @@ export default function Cart(){
     },[])
 
     useEffect(()=>{
-    if(items.length<1 && coun.length>0){
-        
-        
-    }
-   },[items,coun])
-
-    useEffect(()=>{
         if(items.length<1 && coun.length>0){
             axios.get("https://calm-lime-parrot-tam.cyclic.app/cart")
             .then(data=>{
