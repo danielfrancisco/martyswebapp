@@ -9,7 +9,8 @@ function Home (){
   const[coun,scoun]=useState("")
   
   useEffect(()=>{
-    axios.get("https://fantastic-bee-lingerie.cyclic.app/cart")
+    
+    axios.get("https://beautiful-cyan-fatigues.cyclic.cloud/cart")
    .then(data=>{
      scoun(data.data.coun)
      })
@@ -17,11 +18,9 @@ function Home (){
   },[])
   
   useEffect(()=>{
-    
-      axios.get("https://fantastic-bee-lingerie.cyclic.app/")
+    axios.get("https://beautiful-cyan-fatigues.cyclic.cloud/")
       .then(data=>{
         
-        console.log(data)
         shedaer(data.data[0]?.header)
       })
     

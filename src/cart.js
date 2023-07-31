@@ -1,15 +1,13 @@
 import { useEffect, useState, useRef } from "react";
 import Nav from "./nav"
-import emptycar from "./Images/emptycar.png"
+import emptycart from "./Images/emptycart.png"
 import "./Styles/cart.scss";
 import axios from "axios"
-import CartIcon from "./cartIcon";
 import uuid from 'react-uuid';
 
 export default function Cart(){
     const[items,sitems] = useState([])
     const[coun,scoun]=useState([])
-    const[empty,sempty]=useState("")
     const[amountItems,samountItems]=useState("")
     const[promiseFullfiled,spromiseFullfiled]=useState(false) 
    const emptyCart = useRef()
@@ -17,7 +15,6 @@ export default function Cart(){
     useEffect(()=>{
         
         if(items.length<1 && promiseFullfiled===true){
-            sempty(emptycar)
             emptyCart.current.style.display="block"
            }
            else{
@@ -29,7 +26,7 @@ export default function Cart(){
     },[items,promiseFullfiled])
 
     useEffect(()=>{
-        axios.get("https://fantastic-bee-lingerie.cyclic.app/cart")
+        axios.get("https://beautiful-cyan-fatigues.cyclic.cloud/cart")
         .then(data=>{
             samountItems(data.data.coun)
         })
@@ -37,10 +34,11 @@ export default function Cart(){
     },[items])
 
     useEffect(()=>{
-        spromiseFullfiled(true)
-        axios.get("https://fantastic-bee-lingerie.cyclic.app/cart")
+        
+        axios.get("https://beautiful-cyan-fatigues.cyclic.cloud/cart")
         .then(data=>{
         samountItems(data.data.coun)
+        spromiseFullfiled(true)
         for(let i in data.data.items){
             sitems(items=>[...items,data.data.items[i]])
            scoun(coun=>[...coun,1])
@@ -57,7 +55,7 @@ export default function Cart(){
 
     useEffect(()=>{
         if(items.length<1 && coun.length>0){
-            axios.get("https://fantastic-bee-lingerie.cyclic.app/cart")
+            axios.get("https://beautiful-cyan-fatigues.cyclic.cloud/cart")
             .then(data=>{
                 for(let i in data.data.items){
                     sitems(items=>[...items,data.data.items[i]])
@@ -93,7 +91,7 @@ export default function Cart(){
             return amountItems=amountItems+1
         })
         
-        axios.post("https://fantastic-bee-lingerie.cyclic.app/cart",{
+        axios.post("https://beautiful-cyan-fatigues.cyclic.cloud/cart",{
             amountTem
         })
     }
@@ -124,7 +122,7 @@ export default function Cart(){
             return amountItems=amountItems-1
         })
         
-        axios.post("https://fantastic-bee-lingerie.cyclic.app/cart",{
+        axios.post("https://beautiful-cyan-fatigues.cyclic.cloud/cart",{
             amountTem
         })
         }
@@ -135,8 +133,8 @@ export default function Cart(){
    return(
         <>
             <Nav/>
-            <CartIcon coun={amountItems}/>
-           <img id="emptyCart" alt="  " src={empty} ref={emptyCart}/>
+            
+           <img id="emptyCart" alt="  " src={emptycart} ref={emptyCart}/>
            <div id="cartBag">
              
               {items.map((item,itemIndex)=>{
@@ -163,7 +161,7 @@ export default function Cart(){
                             spromiseFullfiled(true)
                         }
                         
-                        axios.post("https://fantastic-bee-lingerie.cyclic.app/cart",{
+                        axios.post("https://beautiful-cyan-fatigues.cyclic.cloud/cart",{
                             item
                         })
                     }}>remove</button>

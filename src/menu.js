@@ -12,7 +12,7 @@ function Menu(){
   const[view]  = useState("none")
 
   useEffect(()=>{
-    axios.get("https://fantastic-bee-lingerie.cyclic.app/cart")
+    axios.get("https://beautiful-cyan-fatigues.cyclic.cloud/cart")
     .then(v=>{
       scoun(v.data.coun)
       for(let i in v.data.items){
@@ -28,7 +28,7 @@ function Menu(){
   },[product])
 
   useEffect(()=>{   
-    axios.get("https://fantastic-bee-lingerie.cyclic.app/menu")
+    axios.get("https://beautiful-cyan-fatigues.cyclic.cloud/menu")
     .then(data=>{
       
       for(let i in data.data){
@@ -65,7 +65,7 @@ function Menu(){
                     
                     scoun(String(parseInt(coun)+1))
                     
-                    axios.post("https://fantastic-bee-lingerie.cyclic.app/menu",{
+                    axios.post("https://beautiful-cyan-fatigues.cyclic.cloud/menu",{
                         data
                     })
                   }
@@ -100,7 +100,7 @@ function Menu(){
                     }
                     
                     scoun(String(parseInt(coun)+1))
-                    axios.post("https://fantastic-bee-lingerie.cyclic.app/menu",{
+                    axios.post("https://beautiful-cyan-fatigues.cyclic.cloud/menu",{
                         data
                     })
                     
