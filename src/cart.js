@@ -26,7 +26,7 @@ export default function Cart(){
     },[items,promiseFullfiled])
 
     useEffect(()=>{
-        axios.get("https://beautiful-cyan-fatigues.cyclic.cloud/cart")
+        axios.get("https://puce-cow-gear.cyclic.cloud/cart")
         .then(data=>{
             samountItems(data.data.coun)
         })
@@ -35,7 +35,7 @@ export default function Cart(){
 
     useEffect(()=>{
         
-        axios.get("https://beautiful-cyan-fatigues.cyclic.cloud/cart")
+        axios.get("https://puce-cow-gear.cyclic.cloud/cart")
         .then(data=>{
         samountItems(data.data.coun)
         spromiseFullfiled(true)
@@ -55,7 +55,7 @@ export default function Cart(){
 
     useEffect(()=>{
         if(items.length<1 && coun.length>0){
-            axios.get("https://beautiful-cyan-fatigues.cyclic.cloud/cart")
+            axios.get("https://puce-cow-gear.cyclic.cloud/cart")
             .then(data=>{
                 for(let i in data.data.items){
                     sitems(items=>[...items,data.data.items[i]])
@@ -91,7 +91,7 @@ export default function Cart(){
             return amountItems=amountItems+1
         })
         
-        axios.post("https://beautiful-cyan-fatigues.cyclic.cloud/cart",{
+        axios.post("https://puce-cow-gear.cyclic.cloud/cart",{
             amountTem
         })
     }
@@ -122,7 +122,7 @@ export default function Cart(){
             return amountItems=amountItems-1
         })
         
-        axios.post("https://beautiful-cyan-fatigues.cyclic.cloud/cart",{
+        axios.post("https://puce-cow-gear.cyclic.cloud/cart",{
             amountTem
         })
         }
@@ -161,7 +161,7 @@ export default function Cart(){
                             spromiseFullfiled(true)
                         }
                         
-                        axios.post("https://beautiful-cyan-fatigues.cyclic.cloud/cart",{
+                        axios.post("https://puce-cow-gear.cyclic.cloud/cart",{
                             item
                         })
                     }}>remove</button>
