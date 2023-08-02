@@ -12,7 +12,7 @@ function Menu(){
   const[view]  = useState("none")
 
   useEffect(()=>{
-    axios.get("https://puce-cow-gear.cyclic.cloud/cart")
+    axios.get("https://martysapi.onrender.com/cart")
     .then(v=>{
       scoun(v.data.coun)
       for(let i in v.data.items){
@@ -28,7 +28,7 @@ function Menu(){
   },[product])
 
   useEffect(()=>{   
-    axios.get("https://puce-cow-gear.cyclic.cloud/menu")
+    axios.get("https://martysapi.onrender.com/menu")
     .then(data=>{
       
       for(let i in data.data){
@@ -65,7 +65,7 @@ function Menu(){
                     
                     scoun(String(parseInt(coun)+1))
                     
-                    axios.post("https://puce-cow-gear.cyclic.cloud/menu",{
+                    axios.post("https://martysapi.onrender.com/menu",{
                         data
                     })
                   }
@@ -100,7 +100,7 @@ function Menu(){
                     }
                     
                     scoun(String(parseInt(coun)+1))
-                    axios.post("https://puce-cow-gear.cyclic.cloud/menu",{
+                    axios.post("https://martysapi.onrender.com/menu",{
                         data
                     })
                     

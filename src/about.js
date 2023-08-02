@@ -9,7 +9,7 @@ export default function About(){
   const aboutUs = useRef()
 
   useEffect(()=>{
-    axios.get("https://puce-cow-gear.cyclic.cloud/about")
+    axios.get("https://martysapi.onrender.com/about")
     .then(data=>{
       sparagraph(data.data[0].paragraph)
       

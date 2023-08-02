@@ -10,7 +10,7 @@ function Home (){
   
   useEffect(()=>{
     
-    axios.get("https://puce-cow-gear.cyclic.cloud/cart")
+    axios.get("https://martysapi.onrender.com/cart")
    .then(data=>{
      scoun(data.data.coun)
      })
@@ -18,7 +18,7 @@ function Home (){
   },[])
   
   useEffect(()=>{
-    axios.get("https://puce-cow-gear.cyclic.cloud/")
+    axios.get("https://martysapi.onrender.com/")
       .then(data=>{
         
         shedaer(data.data[0]?.header)
