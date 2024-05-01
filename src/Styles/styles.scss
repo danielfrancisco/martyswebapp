@@ -5,7 +5,7 @@
 @import "menu";
 
 $buttonHeight: 46px;
-$buttonWidth: 120px;
+$buttonWidth: 130px;
 
 @mixin button($Height, $Width){
   display: inline;
@@ -42,13 +42,14 @@ $buttonWidth: 120px;
 
 @media screen and (max-width: 1000px) {
   #menuItemsLe{
-      @include menuLe(30vw, 115vh);
+      @include menuLe(30vw, 145vh);
       
       
   }
 
   #menuItemsRi{
     @include menuRi(30vw);
+    
   
   }
   

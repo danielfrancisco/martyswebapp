@@ -1,18 +1,21 @@
 import { useEffect, useState, useRef } from "react";
 import Nav from "./nav"
-import emptycart from "./Images/emptycart.png"
+import emptycartImage from "./Images/emptycartImage.png"
 import "./Styles/cart.scss";
 import axios from "axios"
 import CartIcon from "./cartIcon";
 import uuid from 'react-uuid';
+import { useSelector, useDispatch } from 'react-redux'
+import { getMenuData, setCartCounter } from './slice'
 
 export default function Cart(){
     const[items,sitems] = useState([])
-    const[coun,scoun]=useState([])
+    const[coun,scoun]=useState(0)
     const[amountItems,samountItems]=useState("")
-    
     const emptyCart = useRef()
-
+    const buydata = useSelector(state=>state)
+    const dispatch = useDispatch()
+    
     useEffect(()=>{
         
         if(items.length<1){
@@ -26,17 +29,24 @@ export default function Cart(){
     },[items])
 
     useEffect(()=>{
-        axios.get("https://fantastic-bee-lingerie.cyclic.app/cart")
-        .then(data=>{
-            samountItems(data.data.coun)
-        })
-
+        let coun = 0
+        for(let i in items){
+            coun = coun + items[i].amount
+            
+        }
+        samountItems(coun)
+        dispatch(getMenuData(items))
     },[items])
 
     useEffect(()=>{
-     
-      
-       axios.get("https://fantastic-bee-lingerie.cyclic.app/cart")
+        
+        for(let i in buydata.menudata){
+            
+            sitems(items=>[...items,buydata.menudata[i]])
+            
+        }
+        
+        /*axios.get("https://fantastic-bee-lingerie.cyclic.app/cart")
             .then(data=>{
             
             samountItems(data.data.coun)
@@ -44,94 +54,58 @@ export default function Cart(){
                 sitems(items=>[...items,data.data.items[i]])
             scoun(coun=>[...coun,1])
             }
-      })
-        
+      })*/
         
     },[])
 
     useEffect(()=>{
         if(items.length<1 && coun.length>0){
-            axios.get("https://fantastic-bee-lingerie.cyclic.app/cart")
+            
+           /* axios.get("https://fantastic-bee-lingerie.cyclic.app/cart")
             .then(data=>{
                 
                 for(let i in data.data.items){
                     sitems(items=>[...items,data.data.items[i]])
                    scoun(coun=>[...coun,0])
                 }
-              })
+              })*/
         }
 
     },[items,coun])
 
     function incre(combo){
-        let amountTem = []
-        let itemsTem = []
-        let position 
-        for(let i in items){
-            if(items[i].name===combo.name){
-                amountTem.push(items[i])
-                amountTem[0].amount=parseInt(amountTem[0].amount)+1
-                position = i
-                
-            }else{
-                
-                itemsTem.push(items[i])
+        let tem = [...items]
+        
+        for(let i in tem){
+            if(tem[i].name === combo.name){
+                tem[i] = {...tem[i], amount: tem[i].amount+1}
                 
             }
-            
         }
-        
-        itemsTem.splice(position,0,amountTem[0]);
-        sitems(itemsTem)
-        
-        samountItems(amountItems=>{
-            return amountItems=amountItems+1
-        })
-
-        axios.post("https://fantastic-bee-lingerie.cyclic.app/cart",{
-            amountTem
-        })
+        sitems(tem)
+       
     }
 
     function reduce(combo){
-        if(combo.amount>1){
-        let amountTem = []
-        let itemsTem = []
-        let position 
-        for(let i in items){
-            if(items[i].name===combo.name){
-                amountTem.push(items[i])
-                amountTem[0].amount=parseInt(amountTem[0].amount)-1
-                position = i
+        let tem = [...items]
+        
+        for(let i in tem){
+            if(tem[i].name === combo.name){
+                if(tem[i].amount>1){
+                    tem[i] = {...tem[i], amount: tem[i].amount-1}
+                }
                 
-            }else{
-                
-                itemsTem.push(items[i])
                 
             }
-            
         }
-        
-        itemsTem.splice(position,0,amountTem[0]);
-        sitems(itemsTem)
-        
-        samountItems(amountItems=>{
-            return amountItems=amountItems-1
-        })
-
-        axios.post("https://fantastic-bee-lingerie.cyclic.app/cart",{
-            amountTem
-        })
-        }
+        sitems(tem)
     }
     
-     
-    
-   return(
+     return(
         <>
             <Nav/>
             <CartIcon coun={amountItems}/>
-           <img id="emptyCart" alt="  " src={emptycart} ref={emptyCart}/>
+           <img id="emptyCart" alt="  " src={emptycartImage} ref={emptyCart}/>
            <div id="cartBag">
              
               {items.map((item,itemIndex)=>{
@@ -148,12 +122,14 @@ export default function Cart(){
                     }}>+</button>
                     <button id="remove" onClick={()=>{
                         
-                        sitems([])
-                        
-                        
-                        axios.post("https://fantastic-bee-lingerie.cyclic.app/cart",{
-                            item
-                        })
+                        let itemsAfterRemove = []
+                        for(let i in items){
+                            if(items[i].name===item.name===false){
+                                itemsAfterRemove.push(items[i])
+                            }
+                        }
+
+                        sitems(itemsAfterRemove)
                     }}>remove</button>
                 </div>
               })}

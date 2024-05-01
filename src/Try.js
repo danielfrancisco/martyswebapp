@@ -10,7 +10,7 @@ export function Try (){
         <p>Coming soon!</p>
         <button onClick={
           ()=>{
-            window.location.hash="/";
+            window.location.hash="/menu";
           }
         }>View Menu</button>
         </div>

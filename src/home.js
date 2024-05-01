@@ -1,32 +1,33 @@
 import React, { useEffect, useState } from "react";
 import Nav from "./nav"
 import "./Styles/styles.scss";
-import axios from "axios"
 import CartIcon from "./cartIcon";
+import { useSelector, useDispatch } from 'react-redux'
+import { setCartCounter } from './slice'
 
 function Home (){
-  const[header,shedaer]=useState("")
-  const[coun,scoun]=useState("")
-  
-  useEffect(()=>{
-   axios.get("https://fantastic-bee-lingerie.cyclic.app/cart")
-   .then(data=>{
-     scoun(data.data.coun)
-     })
-   
-  },[])
-  
-  useEffect(()=>{
-    axios.get("https://fantastic-bee-lingerie.cyclic.app/")
-    .then(data=>{
-      shedaer(data.data[0].header)
-    })
-  },[])
+  const[header,shedaer]=useState("Big things are coming!")
+  const[coun,scoun]=useState(0)
+  const buydata = useSelector(state=>state)
+ const dispatch = useDispatch()
+
+     useEffect(()=>{
+      let count = 0
+      for(let i in buydata.menudata){
+       count = count+buydata.menudata[i].amount
+      }
+       scoun(count)
+       },[])
+
+     useEffect(()=>{
+      
+      dispatch(setCartCounter(coun))
+     },[coun])
 
      return(
         <>
        <Nav/>         
-       <CartIcon coun={coun}/>
+       <CartIcon coun={buydata.cartCounter}/>
        
         <div id="home">
           <ul id="hero">
@@ -37,7 +38,7 @@ function Home (){
               window.location.hash="/tryOne";
             }
           }>
-          Order Now
+         Check our new menu!
           </button>
           
           </ul>

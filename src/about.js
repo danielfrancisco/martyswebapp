@@ -6,7 +6,7 @@ import { useRef } from "react"
 
 
 export default function About(){
-  const[paragraph,sparagraph]=useState("")
+  const[paragraph,sparagraph]=useState("We are just passionate about bringing happines to your table.")
   const aboutUs = useRef()
 
   useEffect(()=>{

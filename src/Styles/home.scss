@@ -27,7 +27,7 @@
       position: relative;
       left: 40vw;
       top: 14vh;
-      font-size: 30px;
+      font-size: 32px;
       color: white;
       
   }
@@ -42,8 +42,8 @@
       font-size: 17px;
       font-weight: bold;
       cursor: pointer;
-      height: 48px;
-      width: 120px;
+      height: 58px;
+      width: 180px;
       &:hover{
         background-color: black;
         color: #0F52BA;
@@ -51,8 +51,9 @@
       }
   }
   img{
-      position: relative;
-      top: -16vh;
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
       height: 50vh;
       left: 8vw;
       z-index: 0;
