@@ -30,8 +30,8 @@ $buttonWidth: 130px;
 
 
 #menuItemsLe{
-  @include menuLe(55vw, 20vh)
- 
+  @include menuLe(55vw, 20vh);
+  
 }
 
 
@@ -42,13 +42,15 @@ $buttonWidth: 130px;
 
 @media screen and (max-width: 1000px) {
   #menuItemsLe{
-      @include menuLe(30vw, 145vh);
-      
+    
+      @include menuLe(50%, 1020px);
+      transform: translateX(-50%);
       
   }
 
   #menuItemsRi{
-    @include menuRi(30vw);
+    @include menuRi(50%);
+    transform: translateX(-50%);
     
   
   }
@@ -84,7 +86,9 @@ $buttonWidth: 130px;
   left: 10vw;
   z-index: 1;
   height: 70px;
+  
   width: 30px;
+  margin-top: 25px;
   cursor: pointer;
   img{
     height: 70px;
